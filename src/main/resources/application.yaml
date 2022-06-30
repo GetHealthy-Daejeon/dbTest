@@ -1,0 +1,75 @@
+application:
+   version: v0.0.1
+   title: 일해라_핫산!
+
+# 포트 수정
+server:
+   port: 8080
+   
+# 개발 버전 설정
+spring:
+   profiles:
+      active: env # dev 또는 env 설정
+
+# MyBatis 설정
+mybatis:
+   mapper-locations: classpath:/sqlmap/sqlmapper_*.xml
+   # sqlmapper_를 쓴 모든 파일을 가져오겠다는 뜻
+   type-aliases-package: com.example.dbTest.vo
+   # vo를 작성한 위치. sql 결과가 vo로 리턴이 됨
+
+pagehelper:
+   # 사용할 데이터베이스
+   helper-dialect: mysql
+   # 0페이지 요청이 들어오면 자동으로 1페이지로, 13페이지까지 있는데 14페이지 요청이 들어오면 자동으로 13페이지로 변환.
+   reasonable: true   
+   
+# MySQL 접속정보 설정
+      # 쿼리파일 위치를 알려줘야 함
+---
+spring:
+   profiles: env # 운영모드
+   datasource:
+      # init.sql 파일 자동 실행
+      # initialization-mode: always # 실행 안 시킬 거면 never
+      # schema: classpath:init.sql
+      # Spring이 자동으로 드라이버를 잡아줌
+      driver-class-name: com.mysql.cj.jdbc.Driver
+      # 데이터 베이스 주소
+      # 데이터베이스 이름이 dw여야 아래 주소 사용 가능
+      url: jdbc:mysql://joon-database.cswsbqu2rso7.ap-northeast-2.rds.amazonaws.com:3306/dw?useUnicode=true&charaterEncoding=utf-8&serverTimezone=UTC
+      # 디비버 유저네임과 패스워드 사용
+      # 디비버 localhost 오른쪽클릭, edit connection하면 확인가능
+      username: dudwns0311
+      password: 184365wns
+   # jsp 경로 설정
+   mvc:
+      view:
+         prefix: /WEB-INF/views/
+         suffix: .jsp
+      # css, js, image 폴더 위치 설정
+      static-path-pattern: /resources/static/**
+      
+---
+spring:
+   profiles: dev # 개발모드
+   datasource:
+      # init.sql 파일 자동 실행
+      initialization-mode: always # 실행 안 시킬 거면 never
+      schema: classpath:init.sql
+      # Spring이 자동으로 드라이버를 잡아줌
+      driver-class-name: com.mysql.cj.jdbc.Driver
+      # 데이터 베이스 주소
+      # 데이터베이스 이름이 dw여야 아래 주소 사용 가능
+      url: jdbc:mysql://localhost:3306/dw?useUnicode=true&charaterEncoding=utf-8&serverTimezone=UTC
+      # 디비버 유저네임과 패스워드 사용
+      # 디비버 localhost 오른쪽클릭, edit connection하면 확인가능
+      username: root
+      password: 9090
+   # jsp 경로 설정
+   mvc:
+      view:
+         prefix: /WEB-INF/views/
+         suffix: .jsp
+      # css, js, image 폴더 위치 설정
+      static-path-pattern: /resources/static/**
