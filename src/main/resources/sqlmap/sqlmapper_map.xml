@@ -1,4 +1,8 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.example.dbTest.mapper.ExcelMapper">
-
+	<select id="selectYuseong" resultType="map">
+		SELECT * 
+		from excel.대전시_체육시설
+		WHERE 구코드 = "유성구"
+	</select>
 </mapper>

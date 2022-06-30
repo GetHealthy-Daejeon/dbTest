@@ -1,18 +1,14 @@
 package com.example.dbTest.controller;
 
-import java.io.BufferedReader;
-import java.io.InputStreamReader;
-import java.io.UnsupportedEncodingException;
-import java.net.HttpURLConnection;
-import java.net.URL;
-import java.nio.charset.Charset;
+import java.util.List;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.GetMapping;
 
 import com.example.dbTest.service.ExcelService;
-
 
 @Controller
 public class ExcelController {
@@ -21,8 +17,9 @@ public class ExcelController {
 	private ExcelService excelService;
 	
 	@GetMapping("/home")
-	public String callHomepage() {
+	public String callHomepage(ModelMap map) {
+		List<Map<String, Object>> list = excelService.getYuseongFacilityList();
+		map.addAttribute("list", list);
 		return "map";
-//		index.jsp의 파일명
 	}
 }

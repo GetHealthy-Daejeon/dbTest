@@ -68,6 +68,8 @@
       }
     </style>
   </head>
+        <h3>${list}</h3>
+
   <body>
     <div class="container">
       <div class="banner">
@@ -75,7 +77,7 @@
           <img src="logo.png" alt="">
         </div>
         <div class="btn">
-          
+
         </div>
         <div class="banner-list">
           <input type="button" id="banner-btn" value="테니스장">
