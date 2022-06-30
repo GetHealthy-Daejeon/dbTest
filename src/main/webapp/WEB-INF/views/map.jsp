@@ -68,8 +68,6 @@
       }
     </style>
   </head>
-        <h3>${list}</h3>
-
   <body>
     <div class="container">
       <div class="banner">
@@ -106,7 +104,7 @@
       map.setZoomable(zoomable);
     }
     var mapContainer = document.getElementById("map"), // 지도를 div
-      mapOption = {
+		mapOption = {
         center: new kakao.maps.LatLng(36.3504119, 127.3845475), // 중심좌표
         level: 8,
       };
@@ -151,7 +149,6 @@
 
     //지도 위 표시되고 있는 폴리곤 제거
     function deletePolygon(polygons) {
-      console.log(polygons.length);
       for (var i = 0; i < polygons.length; i++) {
         polygons[i].setMap(null);
       }
@@ -202,7 +199,7 @@
         yuseongPolygon,
         "click",
         function (mouseEvent) {
-          var level = map.getLevel() - 2;
+        	var level = map.getLevel() - 2;
           // map.setLevel(level, {anchor: centroid(points), animate: {
           map.setLevel(level, {
             anchor: new daum.maps.LatLng(
@@ -227,12 +224,12 @@
           deletePolygon(polygons); //폴리곤 제거
           customOverlay.setMap(null); // 커스텀 오버레이(구 이름) 제거
           
+		<c:forEach items="${list}" var="item">
   		// 도로명 주소로 좌표 검색 & 마커 생성
-  		geocoder.addressSearch('방동 144-3', function(result, status) {
+  		geocoder.addressSearch("${item.address}", function(result, status) {
   		    // 검색 완료되면 
   		     if (status === kakao.maps.services.Status.OK) {
   		        var coords = new kakao.maps.LatLng(result[0].y, result[0].x);
-  		        console.log(coords)
   		        // 결과값으로 받은 위치를 마커로 표시합니다
   		        var marker = new kakao.maps.Marker({
   		            map: map,
@@ -240,13 +237,14 @@
   		        });
   		        // 인포윈도우로 장소에 대한 설명을 표시합니다
   		        var infowindow = new kakao.maps.InfoWindow({
-  		            content: '<div style="width:150px;text-align:center;padding:6px 0;">테스트 마커</div>'
+  		            content: '<div style="width:150px;text-align:center;padding:6px 0;">"${item.facility_name}"</div>'
   		        });
   		        infowindow.open(map, marker);
   		    }
   		});
-        }
-      );
+		</c:forEach>
+  	});
+        
 
       // 마우스오버 이벤트
       kakao.maps.event.addListener(yuseongPolygon, "mouseover", function () {

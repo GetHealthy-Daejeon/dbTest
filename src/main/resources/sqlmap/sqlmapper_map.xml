@@ -2,7 +2,12 @@
 <mapper namespace="com.example.dbTest.mapper.ExcelMapper">
 	<select id="selectYuseong" resultType="map">
 		SELECT * 
-		from excel.대전시_체육시설
-		WHERE 구코드 = "유성구"
+		from excel.deajeon_facilities
+		WHERE gu_code = "유성구"
+	</select>
+	<select id="dataTest" resultType="map">
+		SELECT *
+		from dw.board
+		where students_id = 23
 	</select>
 </mapper>

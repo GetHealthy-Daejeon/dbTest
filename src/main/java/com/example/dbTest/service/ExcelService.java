@@ -16,4 +16,8 @@ public class ExcelService {
 	public List<Map<String, Object>> getYuseongFacilityList(){
 		return excelMapper.selectYuseong();
 	}
+	
+	public List<Map<String, Object>> getTestList(){
+		return excelMapper.dataTest();
+	}
 }

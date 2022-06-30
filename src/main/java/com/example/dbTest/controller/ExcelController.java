@@ -19,6 +19,7 @@ public class ExcelController {
 	@GetMapping("/home")
 	public String callHomepage(ModelMap map) {
 		List<Map<String, Object>> list = excelService.getYuseongFacilityList();
+//		List<Map<String, Object>> list = excelService.getTestList();
 		map.addAttribute("list", list);
 		return "map";
 	}

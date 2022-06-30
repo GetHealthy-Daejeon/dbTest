@@ -9,4 +9,5 @@ import org.apache.ibatis.annotations.Param;
 @Mapper
 public interface ExcelMapper {
 	public List<Map<String, Object>> selectYuseong();
+	public List<Map<String, Object>> dataTest();
 }
