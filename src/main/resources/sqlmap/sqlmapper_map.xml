@@ -5,6 +5,10 @@
 		from excel.deajeon_facilities
 		WHERE gu_code = "유성구"
 	</select>
+		
+	<select id="facilityList" resultType="map">
+	
+	</select>
 	
 	<select id="selectDaedeok" resultType="map">
 		SELECT * 
@@ -12,12 +16,8 @@
 		WHERE gu_code = "대덕구"
 	</select>
 	
-	<select id="facilityList" resultType="map">
-	
-	</select>
-	
 	<select id="selectDong" resultType="map">
-		SELECT * 
+		SELECT *
 		from excel.deajeon_facilities
 		WHERE gu_code = "동구"
 	</select>

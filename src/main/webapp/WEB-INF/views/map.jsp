@@ -506,7 +506,8 @@
     });
     // 동구 폴리곤 생성
     function displayDongArea(coordinates, name) {
-      var dongPolygonPath = [];
+      var dongPolygonPath 
+      = [];
       var points = [];
       $.each(coordinates[0], function (index, coordinate) {
         var point = new Object();
