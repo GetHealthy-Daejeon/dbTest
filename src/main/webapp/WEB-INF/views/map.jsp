@@ -34,7 +34,7 @@
         margin-top: 50px;
         
       }
-      #banner-btn{
+      .banner-list input{
         width: 80%;
         height: 50px;
         margin: 5px 15px;
@@ -47,7 +47,7 @@
         font-weight: 600;
         color: rgb(70, 70, 70);
       }
-      #banner-btn:hover{
+      .banner-list input:hover{
         background-color: rgba(0, 148, 0, 0.623);
         color: #ffffff;
       }
@@ -75,17 +75,16 @@
           <img src="logo.png" alt="">
         </div>
         <div class="btn">
-
         </div>
-        <div class="banner-list">
-          <input type="button" id="banner-btn" value="테니스장">
-          <input type="button" id="banner-btn" value="수영장">
-          <input type="button" id="banner-btn" value="공원">
-          <input type="button" id="banner-btn" value="농구장">
-          <input type="button" id="banner-btn" value="풋살&축구">
-          <input type="button" id="banner-btn" value="초기화" onclick="window.location.reload()">
-        </div>
-
+	        <div class="banner-list">
+	          <input type="button" id="T" value="테니스장">
+	          <input type="button" id="S" value="수영장">
+	          <input type="button" id="P" value="공원">
+	          <input type="button" id="B" value="농구장">
+	          <input type="button" id="F" value="풋살&축구">
+	          <input type="button" id="E" value="기타">
+	          <input type="button" id="refresh" value="초기화" onclick="window.location.reload()">
+	        </div>
       </div>
       <div id="map"></div>
       <!-- <p id="result"></p> 이건 왜 있을까용??-->
@@ -218,7 +217,6 @@
               coordinates = val.geometry.coordinates;
               name = val.properties.SGG_NM;
               displayYuseong_dong(coordinates, name);
-              setZoomable(false) // 클릭시 마우스 휠 작동 off
             });
           });
           deletePolygon(polygons); //폴리곤 제거
@@ -389,7 +387,6 @@
               coordinates = val.geometry.coordinates;
               name = val.properties.SGG_NM;
               displayYuseong_dong(coordinates, name); // 행정동 폴리곤 만들기 공동사용
-              setZoomable(false) // 클릭시 마우스 휠 작동 off
             });
           });
           deletePolygon(polygons);
@@ -481,7 +478,6 @@
             coordinates = val.geometry.coordinates;
             name = val.properties.SGG_NM;
             displayYuseong_dong(coordinates, name);
-            setZoomable(false) // 클릭시 마우스 휠 작동 off
           });
         });
         deletePolygon(polygons);
@@ -572,7 +568,6 @@
             coordinates = val.geometry.coordinates;
             name = val.properties.SGG_NM;
             displayYuseong_dong(coordinates, name);
-            setZoomable(false) // 클릭시 마우스 휠 작동 off
           });
         });
         deletePolygon(polygons);
@@ -664,7 +659,7 @@
             coordinates = val.geometry.coordinates;
             name = val.properties.SGG_NM;
             displayYuseong_dong(coordinates, name);
-            setZoomable(false) // 클릭시 마우스 휠 작동 off
+            // setZoomable(false) // 클릭시 마우스 휠 작동 off
           });
         });
         deletePolygon(polygons);
@@ -725,6 +720,5 @@
     var zoomControl = new kakao.maps.ZoomControl();
     // 지도 오른쪽에 줌 컨트롤이 표시되도록 지도에 컨트롤을 추가한다.
     map.addControl(zoomControl, kakao.maps.ControlPosition.RIGHT);
- 
   </script>
 </html>
