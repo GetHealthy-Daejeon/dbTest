@@ -18,9 +18,23 @@ public class ExcelController {
 	
 	@GetMapping("/home")
 	public String callHomepage(ModelMap map) {
-		List<Map<String, Object>> list = excelService.getYuseongFacilityList();
+		List<Map<String, Object>> yuseongList = excelService.getYuseongFacilityList();
 //		List<Map<String, Object>> list = excelService.getTestList();
-		map.addAttribute("list", list);
+		map.addAttribute("yuseongList", yuseongList);
+		
+		List<Map<String, Object>> daedeokList = excelService.getDaedeokFacilityList();
+		map.addAttribute("daedeokList", daedeokList);
+		
+		List<Map<String, Object>> dongList = excelService.getDongFacilityList();
+		map.addAttribute("dongList", dongList);
+		
+		List<Map<String, Object>> jungList = excelService.getJungFacilityList();
+		map.addAttribute("jungList", jungList);
+
+		List<Map<String, Object>> seoList = excelService.getSeoFacilityList();
+		map.addAttribute("seoList", seoList);
+		
+		
 		return "map";
 	}
 }
