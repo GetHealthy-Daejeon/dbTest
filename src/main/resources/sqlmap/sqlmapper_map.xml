@@ -10,4 +10,7 @@
 		from dw.board
 		where students_id = 23
 	</select>
+	<select id="facilityList" resultType="map">
+	
+	</select>
 </mapper>

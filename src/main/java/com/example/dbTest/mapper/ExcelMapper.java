@@ -10,4 +10,5 @@ import org.apache.ibatis.annotations.Param;
 public interface ExcelMapper {
 	public List<Map<String, Object>> selectYuseong();
 	public List<Map<String, Object>> dataTest();
+	public List<Map<String, Object>> facilityList(String facilityName);
 }
