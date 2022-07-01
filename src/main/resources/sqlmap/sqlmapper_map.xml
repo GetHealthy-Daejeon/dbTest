@@ -5,12 +5,32 @@
 		from excel.deajeon_facilities
 		WHERE gu_code = "유성구"
 	</select>
-	<select id="dataTest" resultType="map">
-		SELECT *
-		from dw.board
-		where students_id = 23
+	
+	<select id="selectDaedeok" resultType="map">
+		SELECT * 
+		from excel.deajeon_facilities
+		WHERE gu_code = "대덕구"
 	</select>
+	
 	<select id="facilityList" resultType="map">
 	
+	</select>
+	
+	<select id="selectDong" resultType="map">
+		SELECT * 
+		from excel.deajeon_facilities
+		WHERE gu_code = "동구"
+	</select>
+
+	<select id="selectJung" resultType="map">
+		SELECT * 
+		from excel.deajeon_facilities
+		WHERE gu_code = "중구"
+	</select>
+	
+	<select id="selectSeo" resultType="map">
+		SELECT * 
+		from excel.deajeon_facilities
+		WHERE gu_code = "서구"
 	</select>
 </mapper>

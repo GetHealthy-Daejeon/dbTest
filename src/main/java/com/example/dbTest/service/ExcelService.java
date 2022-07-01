@@ -13,6 +13,7 @@ public class ExcelService {
 	@Autowired
 	ExcelMapper excelMapper;
 	
+	// 유성구
 	public List<Map<String, Object>> getYuseongFacilityList(){
 		return excelMapper.selectYuseong();
 	}
@@ -20,4 +21,27 @@ public class ExcelService {
 	public List<Map<String, Object>> getFacilityList(String facilityName){
 		return excelMapper.facilityList(facilityName);
 	}
+
+	// 대덕구
+	public List<Map<String, Object>> getDaedeokFacilityList(){
+		return excelMapper.selectDaedeok();
+
+	}
+	
+	// 동구
+	public List<Map<String, Object>> getDongFacilityList(){
+		return excelMapper.selectDong();
+	}
+	
+	// 중구
+	public List<Map<String, Object>> getJungFacilityList(){
+		return excelMapper.selectJung();
+	}
+	
+	// 서구
+	public List<Map<String, Object>> getSeoFacilityList(){
+		return excelMapper.selectSeo();
+	}
+	
+	
 }
