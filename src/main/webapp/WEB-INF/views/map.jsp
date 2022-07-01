@@ -131,7 +131,7 @@
     // 행정구 이름 표시
     (customOverlay = new kakao.maps.CustomOverlay({})),
       (infowindow = new kakao.maps.InfoWindow({ removable: true }));
-    var markerPosition = new kakao.maps.LatLng(36.3504119, 127.3845475); // 마커 위치
+    //var markerPosition = new kakao.maps.LatLng(36.3504119, 127.3845475); // 마커 위치
 
     // 마커 생성
     var marker = new kakao.maps.Marker({
@@ -334,15 +334,18 @@
         map: map, // 다각형을 표시할 지도 객체
         path: yuseong_dong_PolygonPath, // 좌표 배열
         strokeWeight: 2, // 선 두께
-        strokeColor: "#004c80", // 선 색깔
+        strokeColor: "#00ff0000", // 선 색깔
         strokeOpacity: 0.8, // 선 불투명도
         fillColor: "#6ADF35", // 채우기 색깔
         fillOpacity: 0.5, // 채우기 불투명도
       });
-      yuseong_dong_Polygon.setOptions({
-        fillColor: "#A2FF99",
-        fillOpacity: 0.5,
-      });
+      
+      // 행정구 폴리곤 구분
+      //	yuseong_dong_Polygon.setOptions({
+      //	fillColor: "#00ff0000", // 행정동 폴리곤 바탕색
+      //	fillOpacity: 0.5,
+      //	});
+      
       // 행정동 클릭 이벤트
       kakao.maps.event.addListener(
         yuseong_dong_Polygon,
@@ -480,7 +483,7 @@
       };
 
       // 커스텀 오버레이 내용
-      var content = '<div class ="label" style ="font-size:30px">대덕구</div>';
+      var content = '<div class ="label" style ="font-size:30px"; font-weight:800">대덕구</div>';
       // 커스텀 오버레이 위치
       var position = centroid(points);
       // 커스텀 오버레이 생성
