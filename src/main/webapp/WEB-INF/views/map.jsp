@@ -7,7 +7,15 @@
   <head>
     <meta charset="utf-8" />
     <title>건강하슈</title>
+   <link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Gamja+Flower&family=Orbitron:wght@600&display=swap" rel="stylesheet">
     <style>
+    
+      .label{
+        font-family: 'Gamja Flower', cursive;
+      }
+    
       .info {
         font-size: 12px;
         padding: 5px;
@@ -67,7 +75,7 @@
         
       }
       
-     .wrap {position: absolute;left: 0;bottom: 40px;width: 288px;height: 132px;margin-left: -144px;text-align: left;overflow: hidden;font-size: 12px;font-family: 'Malgun Gothic', dotum, '돋움', sans-serif;line-height: 1.5;}
+    .wrap {position: absolute;left: 0;bottom: 40px;width: 288px;height: 132px;margin-left: -144px;text-align: left;overflow: hidden;font-size: 12px;font-family: 'Malgun Gothic', dotum, '돋움', sans-serif;line-height: 1.5;}
     .wrap * {padding: 0;margin: 0;}
     .wrap .info {width: 286px;height: 120px;border-radius: 5px;border-bottom: 2px solid #ccc;border-right: 1px solid #ccc;overflow: hidden;background: #fff;}
     .wrap .info:nth-child(1) {border: 0;box-shadow: 0px 1px 2px #888;}
@@ -310,7 +318,7 @@
 
       // 커스텀 오버레이 내용
       // var content = '<div class ="label"><span class="left"></span><span class="center">유성구</span><span class="right"></span></div>';
-      var content = '<div class ="label" style ="font-size:30px">유성구</div>';
+      var content = '<div class ="label" style ="font-size:40px; font-weight : 800">유성구</div>';
       // 커스텀 오버레이 위치
       var position = centroid(points);
       // 커스텀 오버레이 생성
@@ -483,7 +491,7 @@
       };
 
       // 커스텀 오버레이 내용
-      var content = '<div class ="label" style ="font-size:30px"; font-weight:800">대덕구</div>';
+      var content = '<div class ="label" style ="font-size:40px; font-weight : 800">대덕구</div>';
       // 커스텀 오버레이 위치
       var position = centroid(points);
       // 커스텀 오버레이 생성
@@ -609,7 +617,7 @@
       };
 
       // 커스텀 오버레이 내용
-      var content = '<div class ="label" style ="font-size:30px">동구</div>';
+      var content = '<div class ="label" style ="font-size:40px; font-weight : 800">동구</div>';
       // 커스텀 오버레이 위치
       var position = centroid(points);
       // 커스텀 오버레이 생성
@@ -734,7 +742,7 @@
 
       // 커스텀 오버레이 내용
       // var content = '<div class ="label"><span class="left"></span><span class="center">유성구</span><span class="right"></span></div>';
-      var content = '<div class ="label" style ="font-size:30px">중구</div>';
+      var content = '<div class ="label" style ="font-size:40px; font-weight : 800">중구</div>';
       // 커스텀 오버레이 위치
       var position = centroid(points);
       // 커스텀 오버레이 생성
@@ -860,7 +868,7 @@
       };
 
       // 커스텀 오버레이 내용
-      var content = '<div class ="label" style ="font-size:30px">서구</div>';
+      var content = '<div class ="label" style ="font-size:40px; font-weight : 800">서구</div>';
       // 커스텀 오버레이 위치
       var position = centroid(points);
       // 커스텀 오버레이 생성
