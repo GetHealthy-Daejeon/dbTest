@@ -303,8 +303,8 @@
       });
       // 마우스오버 이벤트 채우기
       var mouseoverOption = {
-        fillColor: "#09f", // 색상
-        fillOpacity: 0.8, // 불투명도
+        fillColor: "#6ADF35", // 색상
+        fillOpacity: 1, // 불투명도
       };
       // 마우스아웃 이벤트
       daum.maps.event.addListener(yuseongPolygon, "mouseout", function () {
@@ -477,8 +477,8 @@
       });
       // 마우스오버 이벤트 채우기
       var mouseoverOption = {
-        fillColor: "#09f", // 색상
-        fillOpacity: 0.8, // 불투명도
+        fillColor: "#FFD700", // 색상
+        fillOpacity: 1, // 불투명도
       };
       // 마우스아웃 이벤트
       daum.maps.event.addListener(daedeokPolygon, "mouseout", function () {
@@ -536,7 +536,7 @@
         strokeWeight: 4, // 선 두께
         strokeColor: "#FFFFFF", // 선 색깔
         strokeOpacity: 0.8, // 선 불투명도
-        fillColor: "#87CEFA", // 채우기 색깔
+        fillColor: "#09f", // 채우기 색깔
         fillOpacity: 0.8, // 채우기 불투명도
       });
       polygons.push(dongPolygon); // 폴리곤 제거하기 위한 배열
@@ -612,7 +612,7 @@
       });
       // 마우스아웃 채우기
       var mouseoutOption = {
-        fillColor: "#87CEFA", // 채우기 색깔 초록색 : A2FF99
+        fillColor: "#09f", // 채우기 색깔 초록색 : A2FF99
         fillOpacity: 0.8, // 채우기 불투명도
       };
 
@@ -727,8 +727,8 @@
       });
       // 마우스오버 이벤트 채우기
       var mouseoverOption = {
-        fillColor: "#09f", // 색상
-        fillOpacity: 0.8, // 불투명도
+        fillColor: "#FF4500", // 색상
+        fillOpacity: 1, // 불투명도
       };
       // 마우스아웃 이벤트
       daum.maps.event.addListener(jungPolygon, "mouseout", function () {
@@ -854,7 +854,7 @@
       });
       // 마우스오버 이벤트 채우기
       var mouseoverOption = {
-        fillColor: "#09f",
+        fillColor: "#F08080",
         fillOpacity: 0.8,
       };
       // 마우스아웃 이벤트
