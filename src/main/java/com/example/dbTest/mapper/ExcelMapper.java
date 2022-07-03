@@ -51,4 +51,13 @@ public interface ExcelMapper {
 	 * comment : 서구 조회 함수
 	 */
 	public List<Map<String, Object>> selectSeo();
+	
+	
+	/**
+	 * @return
+	 * @author : Daeun Yang
+	 * @date : 2022. 7. 3.
+	 * comment : 운동 종목 카테고리별 조회
+	 */
+	public List<Map<String, Object>> selectEventCode(String eventCode);
 }

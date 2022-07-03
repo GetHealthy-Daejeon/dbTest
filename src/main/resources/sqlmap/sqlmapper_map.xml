@@ -33,4 +33,13 @@
 		from excel.deajeon_facilities
 		WHERE gu_code = "서구"
 	</select>
+	
+	
+	<!-- 종목 카테고리별 조회 -->
+	<select id="selectEventCode" resultType="map">
+		SELECT * 
+		from excel.deajeon_facilities
+		WHERE event_code = #{eventCode}
+	</select>
+	
 </mapper>
