@@ -28,7 +28,7 @@ pagehelper:
       # 쿼리파일 위치를 알려줘야 함
 ---
 spring:
-   profiles: env # 운영모드
+   profiles: dev # 개발모드
    datasource:
       # init.sql 파일 자동 실행
       # initialization-mode: always # 실행 안 시킬 거면 never
@@ -73,3 +73,52 @@ spring:
          suffix: .jsp
       # css, js, image 폴더 위치 설정
       static-path-pattern: /resources/static/**
+      
+---
+ spring:
+   profiles: dev # 개발모드
+   datasource:
+      # init.sql 파일 자동 실행
+      initialization-mode: always # 실행 안 시킬 거면 never
+      schema: classpath:init.sql
+      # Spring이 자동으로 드라이버를 잡아줌
+      driver-class-name: com.mysql.cj.jdbc.Driver
+      # 데이터 베이스 주소
+      # 데이터베이스 이름이 dw여야 아래 주소 사용 가능
+      url: jdbc:mysql://localhost:3306/dw?useUnicode=true&charaterEncoding=utf-8&serverTimezone=UTC
+      # 디비버 유저네임과 패스워드 사용
+      # 디비버 localhost 오른쪽클릭, edit connection하면 확인가능
+      username: root
+      password: 9090
+   # jsp 경로 설정
+   mvc:
+      view:
+         prefix: /WEB-INF/views/
+         suffix: .jsp
+      # css, js, image 폴더 위치 설정
+      static-path-pattern: /resources/static/**
+      
+---
+spring:
+   profiles: env # 건강하슈 운영모드
+   datasource:
+      # init.sql 파일 자동 실행
+      initialization-mode: always # 실행 안 시킬 거면 never
+      schema: classpath:init.sql
+      # Spring이 자동으로 드라이버를 잡아줌
+      driver-class-name: com.mysql.cj.jdbc.Driver
+      # 데이터 베이스 주소
+      # 데이터베이스 이름이 dw여야 아래 주소 사용 가능
+      url: jdbc:mysql://minyoung-database.cphsvlh69mke.ap-northeast-2.rds.amazonaws.com
+      # 디비버 유저네임과 패스워드 사용
+      # 디비버 localhost 오른쪽클릭, edit connection하면 확인가능
+      username: admin
+      password: bs07360012!
+   # jsp 경로 설정
+   mvc:
+      view:
+         prefix: /WEB-INF/views/
+         suffix: .jsp
+      # css, js, image 폴더 위치 설정
+      static-path-pattern: /resources/static/**
+      
