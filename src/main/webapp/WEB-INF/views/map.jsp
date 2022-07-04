@@ -345,7 +345,7 @@
         strokeColor: "#00ff0000", // 선 색깔
         strokeOpacity: 0.8, // 선 불투명도
         fillColor: "#6ADF35", // 채우기 색깔
-        fillOpacity: 0.5, // 채우기 불투명도
+        fillOpacity: 0.2, // 채우기 불투명도
       });
       
       // 행정구 폴리곤 구분
