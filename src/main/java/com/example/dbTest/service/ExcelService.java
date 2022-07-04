@@ -13,35 +13,36 @@ public class ExcelService {
 	@Autowired
 	ExcelMapper excelMapper;
 	
-	// 유성구
-	public List<Map<String, Object>> getYuseongFacilityList(){
-		return excelMapper.selectYuseong();
-	}
-	
 	public List<Map<String, Object>> getFacilityList(String facilityName){
 		return excelMapper.facilityList(facilityName);
 	}
+	
+	// 유성구
+	public List<Map<String, Object>> getYuseongFacilityList(String eventCode){
+		return excelMapper.selectYuseong(eventCode);
+	}
 
 	// 대덕구
-	public List<Map<String, Object>> getDaedeokFacilityList(){
-		return excelMapper.selectDaedeok();
-
+	public List<Map<String, Object>> getDaedeokFacilityList(String eventCode){
+		return excelMapper.selectDaedeok(eventCode);
 	}
 	
 	// 동구
-	public List<Map<String, Object>> getDongFacilityList(){
-		return excelMapper.selectDong();
+	public List<Map<String, Object>> getDongFacilityList(String eventCode){
+		return excelMapper.selectDong(eventCode);
 	}
 	
 	// 중구
-	public List<Map<String, Object>> getJungFacilityList(){
-		return excelMapper.selectJung();
+	public List<Map<String, Object>> getJungFacilityList(String eventCode){
+		return excelMapper.selectJung(eventCode);
 	}
 	
 	// 서구
-	public List<Map<String, Object>> getSeoFacilityList(){
-		return excelMapper.selectSeo();
+	public List<Map<String, Object>> getSeoFacilityList(String eventCode){
+//		List<Map<String, Object>> list = excelMapper.selectSeo(eventCode);
+		return excelMapper.selectSeo(eventCode);
 	}
+	
 	
 	// 종목코드별 조회
 	public List<Map<String, Object>> getEventCode(String eventCode){

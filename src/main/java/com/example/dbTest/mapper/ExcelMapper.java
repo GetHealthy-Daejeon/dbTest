@@ -8,25 +8,26 @@ import org.apache.ibatis.annotations.Param;
 
 @Mapper
 public interface ExcelMapper {
+	public List<Map<String, Object>> dataTest();
+	
+	public List<Map<String, Object>> facilityList(String facilityName);
+	
+	
 	/**
 	 * @return
 	 * @author : Youngjoon Yoo 
 	 * @date : 2022. 7. 1.
 	 * comment : 유성구 조회 함수
 	 */
-	public List<Map<String, Object>> selectYuseong();
+	public List<Map<String, Object>> selectYuseong(String eventCode);
 
-	public List<Map<String, Object>> dataTest();
-	public List<Map<String, Object>> facilityList(String facilityName);
-
-	
 	/**
 	 * @return
 	 * @author : Daeun Yang
 	 * @date : 2022. 7. 1.
 	 * comment : 대덕구 조회 함수
 	 */
-	public List<Map<String, Object>> selectDaedeok();
+	public List<Map<String, Object>> selectDaedeok(String eventCode);
 	
 	/**
 	 * @return
@@ -34,7 +35,7 @@ public interface ExcelMapper {
 	 * @date : 2022. 7. 1.
 	 * comment : 동구 조회 함수
 	 */
-	public List<Map<String, Object>> selectDong();
+	public List<Map<String, Object>> selectDong(String eventCode);
 	
 	/**
 	 * @return
@@ -42,7 +43,7 @@ public interface ExcelMapper {
 	 * @date : 2022. 7. 1.
 	 * comment : 중구 조회 함수
 	 */
-	public List<Map<String, Object>> selectJung();
+	public List<Map<String, Object>> selectJung(String eventCode);
 	
 	/**
 	 * @return
@@ -50,7 +51,7 @@ public interface ExcelMapper {
 	 * @date : 2022. 7. 1.
 	 * comment : 서구 조회 함수
 	 */
-	public List<Map<String, Object>> selectSeo();
+	public List<Map<String, Object>> selectSeo(String eventCode);
 	
 	
 	/**

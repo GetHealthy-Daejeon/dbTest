@@ -31,7 +31,7 @@ spring:
    profiles: dev # 개발모드
    datasource:
       # init.sql 파일 자동 실행
-      # initialization-mode: always # 실행 안 시킬 거면 never
+      # initialization-mode: never # 실행 안 시킬 거면 never
       # schema: classpath:init.sql
       # Spring이 자동으로 드라이버를 잡아줌
       driver-class-name: com.mysql.cj.jdbc.Driver
@@ -55,7 +55,7 @@ spring:
    profiles: dev # 개발모드
    datasource:
       # init.sql 파일 자동 실행
-      initialization-mode: always # 실행 안 시킬 거면 never
+      initialization-mode: never # 실행 안 시킬 거면 never
       schema: classpath:init.sql
       # Spring이 자동으로 드라이버를 잡아줌
       driver-class-name: com.mysql.cj.jdbc.Driver
@@ -79,7 +79,7 @@ spring:
    profiles: dev # 개발모드
    datasource:
       # init.sql 파일 자동 실행
-      initialization-mode: always # 실행 안 시킬 거면 never
+      initialization-mode: never # 실행 안 시킬 거면 never
       schema: classpath:init.sql
       # Spring이 자동으로 드라이버를 잡아줌
       driver-class-name: com.mysql.cj.jdbc.Driver

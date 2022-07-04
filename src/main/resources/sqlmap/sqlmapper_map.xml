@@ -1,44 +1,61 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.example.dbTest.mapper.ExcelMapper">
-	<select id="selectYuseong" resultType="map">
-		SELECT * 
-		from excel.deajeon_facilities
-		WHERE gu_code = "유성구"
-	</select>
 		
 	<select id="facilityList" resultType="map">
 	
 	</select>
 	
+	<select id="selectYuseong" resultType="map">
+		SELECT * 
+		from health_addr
+		WHERE gu_code = "유성구"
+			<if test='place_no != 0'>
+		 		<!-- 만약 eventCode가 0이 아니라면 where절도 실행해줘 -->
+		 		AND event_code = #{eventCode}
+		 	</if>
+	</select>
+	
 	<select id="selectDaedeok" resultType="map">
 		SELECT * 
-		from excel.deajeon_facilities
+		from health_addr
 		WHERE gu_code = "대덕구"
+			<if test='place_no != 0'>
+		 		AND event_code = #{eventCode}
+		 	</if>
 	</select>
 	
 	<select id="selectDong" resultType="map">
 		SELECT *
-		from excel.deajeon_facilities
+		from health_addr
 		WHERE gu_code = "동구"
+			<if test='place_no != 0'>
+		 		AND event_code = #{eventCode}
+		 	</if>
 	</select>
 
 	<select id="selectJung" resultType="map">
 		SELECT * 
-		from excel.deajeon_facilities
+		from health_addr
 		WHERE gu_code = "중구"
+			<if test='place_no != 0'>
+		 		AND event_code = #{eventCode}
+		 	</if>
 	</select>
 	
 	<select id="selectSeo" resultType="map">
 		SELECT * 
-		from excel.deajeon_facilities
+		from health_addr
 		WHERE gu_code = "서구"
+			<if test='place_no != 0'>
+		 		AND event_code = #{eventCode}
+		 	</if>
 	</select>
 	
 	
-	<!-- 종목 카테고리별 조회 -->
+	<!-- 종목 카테고리별 조회(보류) -->
 	<select id="selectEventCode" resultType="map">
 		SELECT * 
-		from excel.deajeon_facilities
+		from health_addr
 		WHERE event_code = #{eventCode}
 	</select>
 	
