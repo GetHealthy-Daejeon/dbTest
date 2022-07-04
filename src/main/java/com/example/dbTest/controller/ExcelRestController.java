@@ -15,10 +15,13 @@ public class ExcelRestController {
 	@Autowired
 	private ExcelService excelService;
 	
-	@GetMapping("/facility/{facility_name}")
-	public List<Map<String, Object>> getTennis(@PathVariable("facility_name") String facilityName){
-		return excelService.getFacilityList(facilityName);
-	}
+//	@GetMapping("/facility/{facility_name}")
+//	public List<Map<String, Object>> getTennis(@PathVariable("facility_name") String facilityName){
+//		return excelService.getFacilityList(facilityName);
+//	}
+	
+	
+	
 	
 
 }

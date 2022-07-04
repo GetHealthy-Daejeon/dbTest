@@ -233,7 +233,7 @@
               duration: 350, // 확대 애니메이션 시간
             },
           });
-          $.getJSON("resources/static/행정동json/yuseong-gu.json", function (geojson) {
+          $.getJSON("resources/static/구별json/yuseong.json", function (geojson) {
             var data = geojson.features;
             var coordinates = []; // 좌표 저장
             var dongName = ""; // 동 이름
@@ -421,7 +421,7 @@
               duration: 350, // 확대 애니메이션 시간
             },
           });
-          $.getJSON("resources/static/행정동json/daedeok-gu.json", function (geojson) {
+          $.getJSON("resources/static/구별json/daedeok.json", function (geojson) {
             var data = geojson.features;
             var coordinates = [];
             var dongName = "";
@@ -549,7 +549,7 @@
             duration: 350, // 확대 애니메이션 시간
           },
         });
-        $.getJSON("resources/static/행정동json/dong-gu.json", function (geojson) {
+        $.getJSON("resources/static/구별json/dong.json", function (geojson) {
           var data = geojson.features;
           var coordinates = [];
           var dongName = "";
@@ -674,7 +674,7 @@
             duration: 350, // 확대 애니메이션 시간
           },
         });
-        $.getJSON("resources/static/행정동json/jung-gu.json", function (geojson) {
+        $.getJSON("resources/static/구별json/jung.json", function (geojson) {
           var data = geojson.features;
           var coordinates = [];
           var dongName = "";
@@ -799,7 +799,7 @@
             duration: 350,
           },
         });
-        $.getJSON("resources/static/행정동json/seo-gu.json", function (geojson) {
+        $.getJSON("resources/static/구별json/seo.json", function (geojson) {
           var data = geojson.features;
           var coordinates = [];
           var dongName = "";

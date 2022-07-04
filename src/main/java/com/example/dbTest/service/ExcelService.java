@@ -13,34 +13,34 @@ public class ExcelService {
 	@Autowired
 	ExcelMapper excelMapper;
 	
-	public List<Map<String, Object>> getFacilityList(String facilityName){
-		return excelMapper.facilityList(facilityName);
-	}
+//	public List<Map<String, Object>> getFacilityList(){
+//		return excelMapper.facilityList();
+//	}
 	
 	// 유성구
-	public List<Map<String, Object>> getYuseongFacilityList(String eventCode){
-		return excelMapper.selectYuseong(eventCode);
+	public List<Map<String, Object>> getYuseongFacilityList(){
+		return excelMapper.selectYuseong();
 	}
 
 	// 대덕구
-	public List<Map<String, Object>> getDaedeokFacilityList(String eventCode){
-		return excelMapper.selectDaedeok(eventCode);
+	public List<Map<String, Object>> getDaedeokFacilityList(){
+		return excelMapper.selectDaedeok();
 	}
 	
 	// 동구
-	public List<Map<String, Object>> getDongFacilityList(String eventCode){
-		return excelMapper.selectDong(eventCode);
+	public List<Map<String, Object>> getDongFacilityList(){
+		return excelMapper.selectDong();
 	}
 	
 	// 중구
-	public List<Map<String, Object>> getJungFacilityList(String eventCode){
-		return excelMapper.selectJung(eventCode);
+	public List<Map<String, Object>> getJungFacilityList(){
+		return excelMapper.selectJung();
 	}
 	
 	// 서구
-	public List<Map<String, Object>> getSeoFacilityList(String eventCode){
+	public List<Map<String, Object>> getSeoFacilityList(){
 //		List<Map<String, Object>> list = excelMapper.selectSeo(eventCode);
-		return excelMapper.selectSeo(eventCode);
+		return excelMapper.selectSeo();
 	}
 	
 	

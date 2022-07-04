@@ -9,6 +9,7 @@ import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import com.example.dbTest.service.ExcelService;
 
@@ -19,24 +20,23 @@ public class ExcelController {
 	private ExcelService excelService;
 	
 	@CrossOrigin 
-	@GetMapping("/home/{event_code}")
-	public String callHomepage(ModelMap map, @PathVariable("event_code") String eventCode) {
-		List<Map<String, Object>> yuseongList = excelService.getYuseongFacilityList(eventCode);
+	@GetMapping("/home")
+	public String callHomepage(ModelMap map) {
+		List<Map<String, Object>> yuseongList = excelService.getYuseongFacilityList();
 //		List<Map<String, Object>> list = excelService.getTestList();
 		map.addAttribute("yuseongList", yuseongList);
 		
-		List<Map<String, Object>> daedeokList = excelService.getDaedeokFacilityList(eventCode);
+		List<Map<String, Object>> daedeokList = excelService.getDaedeokFacilityList();
 		map.addAttribute("daedeokList", daedeokList);
 		
-		List<Map<String, Object>> dongList = excelService.getDongFacilityList(eventCode);
+		List<Map<String, Object>> dongList = excelService.getDongFacilityList();
 		map.addAttribute("dongList", dongList);
 		
-		List<Map<String, Object>> jungList = excelService.getJungFacilityList(eventCode);
+		List<Map<String, Object>> jungList = excelService.getJungFacilityList();
 		map.addAttribute("jungList", jungList);
-
-		List<Map<String, Object>> seoList = excelService.getSeoFacilityList(eventCode);
-		map.addAttribute("seoList", seoList);
 		
+		List<Map<String, Object>> seoList = excelService.getSeoFacilityList();
+		map.addAttribute("seoList", seoList);
 		
 		return "map";
 	}

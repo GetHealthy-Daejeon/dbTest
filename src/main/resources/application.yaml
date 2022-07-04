@@ -28,7 +28,7 @@ pagehelper:
       # 쿼리파일 위치를 알려줘야 함
 ---
 spring:
-   profiles: dev # 개발모드
+   profiles: dd # 개발모드
    datasource:
       # init.sql 파일 자동 실행
       # initialization-mode: never # 실행 안 시킬 거면 never
@@ -52,7 +52,7 @@ spring:
       
 ---
 spring:
-   profiles: dev # 개발모드
+   profiles: ss # 개발모드
    datasource:
       # init.sql 파일 자동 실행
       initialization-mode: never # 실행 안 시킬 거면 never
@@ -76,7 +76,7 @@ spring:
       
 ---
  spring:
-   profiles: dev # 개발모드
+   profiles: aa # 개발모드
    datasource:
       # init.sql 파일 자동 실행
       initialization-mode: never # 실행 안 시킬 거면 never
