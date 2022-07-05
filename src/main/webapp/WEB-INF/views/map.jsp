@@ -220,7 +220,7 @@
       kakao.maps.event.addListener(
         yuseongPolygon,
         "click",
-        function (mouseEvent) {
+        function (mouseEvent) { //
         	
             
         	var level = map.getLevel() - 2;
