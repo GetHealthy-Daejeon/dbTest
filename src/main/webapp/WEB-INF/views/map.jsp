@@ -139,7 +139,6 @@
     // 행정구 이름 표시
     (customOverlay = new kakao.maps.CustomOverlay({})),
       (infowindow = new kakao.maps.InfoWindow({ removable: true }));
-    //var markerPosition = new kakao.maps.LatLng(36.3504119, 127.3845475); // 마커 위치
 
     // 마커 생성
     var marker = new kakao.maps.Marker({
@@ -222,6 +221,8 @@
         yuseongPolygon,
         "click",
         function (mouseEvent) {
+        	
+            
         	var level = map.getLevel() - 2;
           // map.setLevel(level, {anchor: centroid(points), animate: {
           map.setLevel(level, {
