@@ -9,6 +9,9 @@
 		SELECT * 
 		from dw.health_addr
 		WHERE gu_code = "유성구" 
+		<if test="studentsId != 0">
+					,#{studentsId}
+		</if>
 	</select>
 	
 	<select id="selectDaedeok" resultType="map">

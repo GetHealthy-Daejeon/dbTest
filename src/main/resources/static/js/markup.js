@@ -1,8 +1,6 @@
- function displayDaedeokArea(coordinates, name) {
-
-         for (var i=0; i<daedeokList.length; i++){
+ function displayYuseongArea() {
 	  		// 도로명 주소로 좌표 검색 & 마커 생성
-	  		geocoder.addressSearch(daedeokList[i].addr_road, function(result, status) {
+	  		geocoder.addressSearch(daedeokList.addr_road, function(result, status) {
 	  		    // 검색 완료되면 결과값으로 받은 위치를 마커로 표시
 	  		     if(status === kakao.maps.services.Status.OK) {
 	  		    	// 마커 이미지의 이미지 주소입니다
@@ -33,6 +31,6 @@
 						});
 	  		    	}
 	  			});
-			} // end for
+			// } // end for
  
-    }
+}    

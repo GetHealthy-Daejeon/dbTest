@@ -1,0 +1,543 @@
+/***************************************
+Template Name: Green Fair
+Author: Md Foysal Ahamed
+Created: July 05 2016
+Version: 1.2
+****************************************/
+
+
+/*CSS Style Structure
+1. General Or Universal code,
+2. Import Google's Fonts,
+3. Header,
+4. Slider,
+5. Welcome,
+6. Volunteer,
+7. Portfolio,
+8. Achivment,
+9. Event,
+10. Testimonial,
+11. Latest Blog,
+12. Purches,
+13. Contact,
+14. Footer.
+*/
+
+
+/*
+font-family: 'Roboto Slab', serif;
+*/
+
+@import url(https://fonts.googleapis.com/css?family=Roboto+Slab:400,700,300,100);
+
+/*
+font-family: 'Lato', sans-serif;
+*/
+
+@import url(https://fonts.googleapis.com/css?family=Lato:400,100,100italic,300,300italic,400italic,700,700italic,900,900italic);
+
+/*
+font-family: 'Raleway', sans-serif;
+*/
+
+@import url(https://fonts.googleapis.com/css?family=Raleway:400,100,200,300,500,600,700,800,900);
+
+/*
+font-family: 'Open Sans', sans-serif;
+*/
+
+@import url(https://fonts.googleapis.com/css?family=Open+Sans:400,300,300italic,400italic,600,600italic,700italic,700,800,800italic);
+
+/*
+font-family: 'Roboto', sans-serif;
+*/
+
+@import url(https://fonts.googleapis.com/css?family=Roboto:400,100,100italic,300,300italic,400italic,500,500italic,700,700italic,900,900italic);
+
+/*UNIVERSAL CODE*/
+
+* {
+    margin: 0;
+    padding: 0;
+}
+.alignleft {
+    float: left;
+    margin-right: 15px
+}
+.alignright {
+    float: right;
+    margin-left: 15px;
+}
+.aligncenter {
+    display: block;
+    margin: 0 auto
+}
+.floatleft {
+    float: left
+}
+.floatright {
+    float: right
+}
+.fix {
+    overflow: hidden
+}
+.clear {
+    clear: both
+}
+.container {
+    transition: all 0.9s ease 0s;
+    -webkit-transition: all 0.9s ease 0s;
+    -moz-transition: all 0.9s ease 0s;
+    -o-transition: all 0.9s ease 0s;
+    -ms-transition: all 0.9s ease 0s;
+}
+ul {
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+}
+a,
+a:hover,
+a:focus,
+a:visited,
+a:hover {
+    text-decoration: none !important;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    margin: 0;
+    padding: 0;
+    font-weight: normal;
+}
+p {
+    padding: 0;
+    margin: 0;
+}
+img {
+    max-width: 100%;
+    height: auto;
+}
+html {
+    height: 100%
+}
+body {
+}
+
+/*Remove chrome Input Field’s Unwanted Yellow Background Color*/
+
+
+
+/*Input focus color removed*/
+
+:focus {
+    outline: -webkit-focus-ring-color auto 0px;
+}
+
+/*Bootstrap Form Control Focus*/
+
+.form-control:focus {
+    border-color: #fff;
+    border: 0px;
+    outline: 0;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+}
+
+/***************************/
+
+.zero_mp {
+    padding: 0;
+    margin: 0;
+}
+.margin_btm {
+    margin-bottom: 0px !important;
+}
+.sections{
+    padding: 80px 0;
+    overflow: hidden;
+    position: relative;
+}
+.min-spacing{
+    padding: 50px 0;
+    overflow: hidden;
+    position: relative;
+}
+/***********************************************/
+
+
+/*header*/
+/* 최상단 헤더바 */
+
+/*Header Top header*/
+
+#header .top_header {
+    min-height: 50px;
+    background: #FBFBFB;
+    border-bottom: 2px solid #F2F2F2;
+    padding-top: 15px;
+}
+#header .top_header .address {
+    border-right: 1px solid #E6E5E5;
+}
+#header .top_header .address p {
+    font-size: 12px;
+    padding-top: 2px;
+    color: #646464;
+    font-family: 'Open Sans', sans-serif;
+}
+#header .top_header .phone p {
+    color: #646464;
+    font-size: 12px;
+    font-family: 'Open Sans', sans-serif;
+    padding-top: 1px;
+    display: inline-block;
+}
+#header .top_header .address i,
+#header .top_header .phone i {
+    padding: 3px 5px;
+    font-size: 15px;
+}
+#header .top_header .social_icon i {
+    padding: 0 5px;
+    color: #787878;
+    font-size: 12px;
+    font-weight: 700;
+}
+#header .top_header .social_icon i:hover {
+    color: #43A906;
+}
+
+/*End of top header*/
+/* 상단 메뉴바 */
+
+#header .header_menu {
+    min-height: 80px;
+    border-bottom: 1px solid #3D3E3D;
+    z-index: 9999
+}
+#header .header_menu .navbar {
+    border: 0px solid transparent;
+}
+#header .header_menu .custom_navbar-brand {
+    padding-left: 0;
+}
+#header .header_menu .navbar-default {
+    background-color: rgba(255, 255, 255, 0);
+    border-color: rgba(255, 255, 255, 0);
+}
+#header .header_menu .navbar-default .navbar-nav>.active>a,
+#header .header_menu .navbar-default .navbar-nav>.active>a:focus,
+#header .header_menu .navbar-default .navbar-nav>.active>a:hover {
+    background-color: rgba(255, 255, 255, 0);
+}
+#header .header_menu .main_menu {
+    padding-top: 20px;
+}
+#header .header_menu ul.main_menu li a {
+    color: #393939;
+    font-size: 14px;
+    text-transform: uppercase;
+    font-weight: 600;
+    font-family: 'Roboto Slab', serif;
+}
+#header .header_menu ul.main_menu li a:hover {
+    color: #4DA91C;
+}
+#header .header_menu ul.main_menu li.active a {
+    color: #4DA91C;
+}
+#header .header_menu ul.main_menu li,
+#header .header_menu ul.main_menu li.active a {
+    display: inline-block;
+    position: relative;
+}
+#header .header_menu ul.main_menu li:after {
+    content: '';
+    display: block;
+    margin: auto;
+    height: 3px;
+    width: 0px;
+    background: transparent;
+    transition: width .5s ease, background-color .5s ease;
+    margin-top: 6px;
+}
+#header .header_menu ul.main_menu li:hover:after,
+#header .header_menu ul.main_menu li.active:after {
+    width: 90%;
+    background: #4DA91C;
+}
+
+
+
+
+/*purches*/
+section#market {
+    padding: 80px;
+}
+
+#purches {
+    min-height: 200px;
+    background: #333333;
+}
+#purches .purches_title {
+    font-size: 36px;
+    font-weight: 700;
+    text-transform: uppercase;
+    color: #ffffff;
+}
+#purches h2.purches_title {
+    font-size: 36px;
+    padding-top: 80px;
+    font-family: 'Roboto Slab', serif;
+    font-weight: 700;
+    color: #ffffff;
+}
+#purches a.purches_btn {
+    float: right;
+    margin-top: 80px;
+    padding: 8px 58px;
+    background: #43a906;
+    color: #fff;
+    text-transform: uppercase;
+    font-weight: 700;
+    border-radius: 2px;
+    font-family: 'Roboto Slab', serif;
+    font-size: 18px;
+}
+div#market-place {
+    min-height: 200px;
+    border-bottom: 1px solid #bcbaba;
+}
+
+/* login */
+
+section#login{
+    padding: 3% 35%;
+    
+}
+
+.txt-field {
+    position: relative;
+    border-bottom: 2px solid #adadad;
+    margin: 30px 0;
+}
+
+.txt-field input {
+    width: 100%;
+    padding: 0 5px;
+    height: 40px;
+    font-size: 16px;
+    border: none;
+    outline: none;
+}
+.txt-field input:focus ~ label,
+.txt-field input:valid ~ label {
+top: -5px;
+color: #2691d9;
+transition: 0.5s;
+font-size: 15px;
+}
+
+.txt-field label {
+position: absolute;
+top: 50%;
+left: 5px;
+color: #adadad;
+transform: translateY(-50%);
+font-size: 16px;
+pointer-events: none;
+}
+
+.login-btn {
+    width: auto;
+    padding: 1%;
+    height: 50px;
+    border: 1px solid white; 
+    background: #ffffff;
+    border-radius: 5px;
+    font-size: 18px;
+    text-align: center;
+    color: rgb(0, 0, 0);
+    font-weight: 700;
+    cursor: pointer;
+    outline: none;
+    margin-top: 50px;
+    
+  }
+.login-btn:hover{
+    background: #585b5ea9;
+    transition: 0.3s;
+}
+
+
+
+/*Footer*/
+
+#footer {
+    min-height: 100px;
+    background: #222222;
+    color: #fff;
+}
+#footer .copyright,
+#footer .designer {
+    padding-top: 45px;
+    font-size: 14px;
+}
+#footer .copyright p {
+    text-align: left;
+}
+#footer .designer p {
+    text-align: right;
+}
+#footer .copyright p,
+#footer .copyright p span a,
+#footer .designer p,
+#footer .designer a {
+    font-size: 14px;
+    color: #ffffff;
+    font-family: 'Open Sans', sans-serif;
+    padding-left: 3px;
+}
+
+
+
+/**/
+
+.section-wraper {
+    position: relative;
+}
+.section-edit {
+    position: absolute;
+    width: 100%;
+    bottom: 0;
+    z-index: 1;
+}
+.section-abc {
+    background: rgba(255, 255, 255, 0.68);
+    padding: 2px 5px;
+    font-size: 12px;
+    font-style: italic;
+    display:none;
+}
+.section-edit:hover .section-abc{
+    display:inline;
+}
+.section-edit .post-edit-link {
+    margin: 10px 0;
+    padding: 2px 12px;
+}
+.section-edit .post-edit-link {
+    margin: 3px 0;
+    padding: 2px 12px;
+    font-size: 12px;
+    line-height: 1.45;
+}
+.section-edit .post-edit-link {
+    margin: 10px 0;
+    display: inline-block;
+    background: #E85757 ;
+    color: #fff!important;
+    padding: 2px 12px;
+    border-radius: 3px;
+}
+.recent-blog .entry-header a {
+    font-size: 1.5rem;
+}
+
+.event_img img {
+    width: 440px;
+    height: 279px;
+}
+.event_news_img img {
+    width: 95px;
+    height: 90px;
+}
+
+#market-place .fw-single-image img {
+    margin: 0 auto;
+}
+
+
+/*.contact_us_padding {
+    padding: 80px 0px;
+}*/
+#contact-us .wel_header {
+    padding-top: 0px;
+    padding-bottom: 0;
+}
+
+#contact-us h3 {
+    font-size: 36px;
+    padding-bottom: 20px;
+    font-weight: 700;
+    text-transform: uppercase;
+    color: #222222;
+    font-family: 'Roboto Slab', serif;
+
+}
+
+#contact-us .wel_header h5 {
+    text-align: left;
+    font-size: 22px;
+    font-weight: 400;
+    text-transform: uppercase;
+    padding-bottom: 20px;
+    font-family: 'Roboto Slab', serif;
+    color: #222222;
+    padding-top: 0px
+}
+#contact-us .office_location i {
+    padding-bottom: 15px;
+}
+#contact-us .office_location i span {
+    padding-left: 15px;
+    color: #696969;
+    font-size: 14px;
+    font-family: 'Open Sans', sans-serif;
+}
+
+#contact-us .form-group {
+    margin-bottom: 0;
+}
+.wel_header.contact_us_h5 {
+    margin-left: -15px !important;
+}
+/*input#name,label.input,label.textarea,textarea.form-control {
+    width: 100%;
+}*/
+
+#slider .carousel-indicators {
+    bottom: 70px;
+}
+
+ul.entry-meta {
+    text-align: left;
+}
+.btn-primmary{
+    background-color: #43a906;
+    padding: 10px 30px;
+    font-size: 16px;
+    font-family: 'Roboto Slab', serif;
+    font-weight: 700;
+}
+.btn.focus, .btn:focus, .btn:hover {
+    color: #ffffff;
+}
+#commentform #comment {
+    padding-left: 10px;
+    margin-top: 10px;
+}
+.widget_search .search-form input[type="submit"], .widget_search input[type="submit"] {
+    font-family: 'Roboto Slab', serif;
+    font-weight: 700;
+}
+.widget_search .search-form input[type="search"], .widget_search input[type="search"] {
+    padding: 0 40px;
+}
+.main-content.blog-w.rap,.main-content.container.blog-wrap.single-blog {
+    margin-top: 80px;
+}

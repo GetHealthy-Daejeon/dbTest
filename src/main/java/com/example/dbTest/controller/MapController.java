@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import com.example.dbTest.service.ExcelService;
 
 @Controller
-public class ExcelController {
+public class MapController {
 	
 	@Autowired
 	private ExcelService excelService;

@@ -1,0 +1,115 @@
+.label{
+  font-family: 'Gamja Flower', cursive;
+}
+.info {
+	font-size: 12px;
+	padding: 5px;
+}
+.info .title {
+	font-weight: bold;
+}
+#map {
+	width: 100%;
+	height: 100vh;
+	z-index: 0;
+}
+
+
+.text-box{
+    font-size: 20px;
+    font-weight: 900;
+    writing-mode: vertical-rl; /* 세로 쓰기 */
+    text-align: center;
+    /* margin-right: 30%; */
+    /* 아래는 드래그 막는 css */
+    -ms-user-select: none; 
+    -moz-user-select: -moz-none;
+    -khtml-user-select: none;
+    -webkit-user-select: none;
+    user-select: none;
+}
+.text-box:hover{
+    transform: scaleX(1.15);
+    transform: scaleY(1.05);
+    transition: 2s;
+}
+.logo {
+	width: 7%;
+    margin: 15px 0;
+    position: fixed;
+    z-index: 1;
+}
+.banner-list {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    visibility: hidden;
+    z-index: 1;
+    width: 0%; /* 처음에 0이었다가 구 클릭하면 커질예정 */
+    margin: 10% auto;
+    /* transition: 0.7s; */
+    /* position: fixed; */
+    /* visibility: hidden; */
+    /* margin-top: 100px; */
+}
+.banner {
+    border-radius: 0 30px 30px 0;
+    display: flex;
+    flex-direction: row;
+    position: fixed;
+    max-width: 1.5%;
+    height: 80%;
+    margin-top: 7%;
+    background-color: rgba(255, 255, 255, 0.7);
+    border-right: 1px solid gray;
+    box-shadow: 1px 1px 5px gray;
+    z-index: 1;
+    transition: 1s;
+}
+
+/* .logo {
+    margin: 15px;
+    border-bottom: 1px solid;
+}
+.banner-list {
+    margin-top: 50px;
+    position: fixed;
+}
+.banner {
+    visibility: hidden;
+    position: fixed;
+    width: 0%;
+    height: 98%;
+    background-color: rgb(255, 255, 255);
+    border-right: 1px solid gray;
+    box-shadow: 1px 1px 5px gray;
+    z-index: 1;
+    transition: 0.5s;
+} */
+
+
+.banner-list input {
+	width: 100%;
+	height: 50px;
+	margin: 5px 0;
+	border-radius: 10%;
+	border-color: rgb(156, 156, 156);
+	cursor: pointer;
+	background-color: rgb(255, 255, 255);
+	box-shadow: 1px 3px 3px rgb(143, 143, 143);
+	font-size: 15px;
+	font-weight: 600;
+	color: rgb(70, 70, 70);
+}
+
+.banner-list input:hover {
+	background-color: rgba(0, 148, 0, 0.623);
+	color: #ffffff;
+}
+.banner-list .active {
+  background-color: rgba(0, 148, 0, 0.623);
+  color: #ffffff;
+}
+.navbar-brand img{
+	width: 100%
+}

@@ -1,173 +1,70 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="utf-8" />
-    <title>건강하슈</title>
-   <link rel="preconnect" href="https://fonts.googleapis.com">
+<head>
+	<meta charset="utf-8" />
+	<title>건강하슈</title>
+	<link href="/resources/static/css/map.css" rel="stylesheet">
+	<link rel="preconnect" href="https://fonts.googleapis.com">
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 	<link href="https://fonts.googleapis.com/css2?family=Gamja+Flower&family=Orbitron:wght@600&display=swap" rel="stylesheet">
-    <style>
-    
-      .label{
-        font-family: 'Gamja Flower', cursive;
-      }
-    
-      .info {
-        font-size: 12px;
-        padding: 5px;
-      }
-      .info .title {
-        font-weight: bold;
-      }
-      #map{
-        width: 100%;
-        height: 1065px;
-        z-index: 0;
-      }
-      .banner{
-        position: fixed;
-        width: 8%;
-        height: 1065px;
-        background-color: rgb(255, 255, 255);
-        border-right: 1px solid gray;
-        box-shadow: 1px 1px 5px gray;
-        z-index: 1;
-      }
-      .banner-list{
-        display: block;
-        margin-top: 50px;
-        
-      }
-      .banner-list input{
-        width: 80%;
-        height: 50px;
-        margin: 5px 15px;
-        border-radius: 10%;
-        border-color: rgb(156, 156, 156);
-        cursor: pointer;
-        background-color: rgb(255, 255, 255);
-        box-shadow: 1px 3px 3px rgb(143, 143, 143);
-        font-size: 15px;
-        font-weight: 600;
-        color: rgb(70, 70, 70);
-      }
-      .banner-list input:hover{
-        background-color: rgba(0, 148, 0, 0.623);
-        color: #ffffff;
-      }
-      .logo{
-        margin: 15px;
-        border-bottom: 1px solid;
-        
-      }
-      .banner .btn{
-        width: 50px;
-        height: 50px;
-        background-color: #ffffff;
-        border: 1px solid grey;
-        box-shadow: 0px 0px 1px gray;
-        border-left: #ffffff;
-        margin-left: 150px;
-        
-      }
-      
-    .wrap {position: absolute;left: 0;bottom: 40px;width: 288px;height: 132px;margin-left: -144px;text-align: left;overflow: hidden;font-size: 12px;font-family: 'Malgun Gothic', dotum, '돋움', sans-serif;line-height: 1.5;}
-    .wrap * {padding: 0;margin: 0;}
-    .wrap .info {width: 286px;height: 120px;border-radius: 5px;border-bottom: 2px solid #ccc;border-right: 1px solid #ccc;overflow: hidden;background: #fff;}
-    .wrap .info:nth-child(1) {border: 0;box-shadow: 0px 1px 2px #888;}
-    .info .title {padding: 5px 0 0 10px;height: 30px;background: #eee;border-bottom: 1px solid #ddd;font-size: 18px;font-weight: bold;}
-    .info .close {position: absolute;top: 10px;right: 10px;color: #888;width: 17px;height: 17px;background: url('https://t1.daumcdn.net/localimg/localimages/07/mapapidoc/overlay_close.png');}
-    .info .close:hover {cursor: pointer;}
-    .info .body {position: relative;overflow: hidden;}
-    .info .desc {position: relative;margin: 13px 0 0 90px;height: 75px;}
-    .desc .ellipsis {overflow: hidden;text-overflow: ellipsis;white-space: nowrap;}
-    .desc .jibun {font-size: 11px;color: #888;margin-top: -2px;}
-    .info .img {position: absolute;top: 6px;left: 5px;width: 73px;height: 71px;border: 1px solid #ddd;color: #888;overflow: hidden;}
-    .info:after {content: '';position: absolute;margin-left: -12px;left: 50%;bottom: 0;width: 22px;height: 12px;background: url('https://t1.daumcdn.net/localimg/localimages/07/mapapidoc/vertex_white.png')}
-    .info .link {color: #5085BB;}
-    
-    </style>
-  </head>
-  <body>
-    <div class="container">
-      <div class="banner">
-        <div class="logo">
-          <a class="navbar-brand custom_navbar-brand" href="http://localhost:8080/health/index">
-		  <img src="/resources/static/img/logo.png" alt=""></a>
-        </div>
-        
-	        <div class="banner-list">
-	          <input type="button" id="T" value="테니스장">
-	          <input type="button" id="S" value="수영장">
-	          <input type="button" id="P" value="공원">
-	          <input type="button" id="B" value="농구장">
-	          <input type="button" id="F" value="풋살&축구">
-	          <input type="button" id="E" value="기타">
-	          <input type="button" id="refresh" value="초기화" onclick="window.location.reload()">
-	        </div>
-      </div>
-      <div id="map"></div>
-      <!-- <p id="result"></p> 이건 왜 있을까용??-->
-    </div>
-  </body>
-  <script
-    src="https://code.jquery.com/jquery-3.6.0.min.js"
-    integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
-    crossorigin="anonymous"
-  ></script>
-  <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=42189fc27ae4cf0d73678ba4cae1e6a0&libraries=services"></script>
-  <script>
+</head>
+<body>
+	<div class="container">
+		<div class="logo">
+		  <a class="navbar-brand custom_navbar-brand" href="/health/index">
+		  <img src="./resources/static/img/logo.png" alt=""></a>
+		</div>
+		<div class="banner">
+			<div class="banner-list">
+				<input class ="test" type="button" id="T" onclick ="markup()" value="테니스장" >
+				<input class ="test" type="button" id="S" onclick ="markup()" value="수영장" >
+				<input class ="test" type="button" id="B" onclick ="markup()" value="농구장" >
+				<input class ="test" type="button" id="F" onclick ="markup()" value="풋살&축구" >
+				<input class ="test" type="button" id="P" onclick ="markup()" value="공원체육시설" >
+				<input class ="test" type="button" id="E" onclick ="markup()" value="기타체육시설" name="test">
+				<hr width="90%" color="#000" noshade />
+				<input type="button" id="park" value="공원">
+				<input type="button" id="tashu" value="타슈">
+				<input type="button" id="deleteMarker" value="마크제거(테스트용)" onclick="deletePolygon(markers)">
+				<input type="button" id="refresh" value="지도초기화" onclick="window.location.reload()">
+			</div>
+			<div class="text-box">
+				구&nbsp;&nbsp;를&nbsp;&nbsp;&nbsp;&nbsp;선&nbsp;&nbsp;택&nbsp;&nbsp;해&nbsp;&nbsp;&nbsp;&nbsp;주&nbsp;&nbsp;세&nbsp;&nbsp;요&nbsp;&nbsp;
+			</div>
+		 </div>
+		<div id="map"></div>
+	</div>
+</body>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"
+	integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
+	crossorigin="anonymous"></script>
+<script type="text/javascript"
+	src="//dapi.kakao.com/v2/maps/sdk.js?appkey=053fa1a57cda6a2315480dc66ba2a3ec&libraries=services"></script>
+<script>
     // 스크롤 컨트롤 기능 함수
     function setZoomable(zoomable) {
       // 마우스 휠로 지도 확대,축소 가능여부를 설정하는 함수
       map.setZoomable(zoomable);
     }
+
     var mapContainer = document.getElementById("map"), // 지도를 div
-		mapOption = {
+      mapOption = {
         center: new kakao.maps.LatLng(36.3504119, 127.3845475), // 중심좌표
         level: 8,
       };
     var map = new kakao.maps.Map(mapContainer, mapOption); // 지도 생성
     
-	// 주소-좌표 변환 객체를 생성합니다
+	// 주소-좌표 변환 객체를 생성
 	var geocoder = new kakao.maps.services.Geocoder();
-		
-    // 행정구 이름 표시
-    (customOverlay = new kakao.maps.CustomOverlay({})),
-      (infowindow = new kakao.maps.InfoWindow({ removable: true }));
-
-    // 마커 생성
-    var marker = new kakao.maps.Marker({
-      position: markerPosition,
-      clickable: true, // 마커를 클릭했을 때 지도의 클릭 이벤트가 발생하지 않도록 설정
-    });
-    marker.setMap(map); // 마커 표시
-
-    // 마커 제거
-    // marker.setMap(null);
-
-    // 마커 클릭하면 나올 인포윈도우
-    var iwContent =
-        '<div style="padding:10px; font-size: 20px; width: 100%; font-weight: 900" >대전광역시 건강하슈!</div>',
-      iwRemoveable = true; // 인포윈도우를 닫는 x버튼 표시
-
-    // 인포윈도우 생성
-    var infowindow = new kakao.maps.InfoWindow({
-      content: iwContent,
-      removable: iwRemoveable,
-    });
-
-    // 마커 위에 인포윈도우 표시
-    kakao.maps.event.addListener(marker, "click", function () {
-      infowindow.open(map, marker);
-    });
-  </script>
-  <script>
+    
+</script>
+<script>
     var polygons = []; // 폴리곤 지울때 사용하는 배열 담는 변수
+    var markers = []; // 마커 전체 제거하기 위한 배열
 
     //지도 위 표시되고 있는 폴리곤 제거
     function deletePolygon(polygons) {
@@ -180,15 +77,14 @@
     // 유성구
     // 유성구 폴리곤 데이터 갖고오기
     $.getJSON("resources/static/구별json/yuseong.json", function (geojson) {
-      var data = geojson.features;
-      var coordinates = []; // 좌표 저장
-      var name = ""; // 구 이름
-      $.each(data, function (index, val) {
-        coordinates = val.geometry.coordinates;
-        name = val.properties.SGG_NM;
-        displayYuseongArea(coordinates, name);
-    
-      });
+        var data = geojson.features;
+        var coordinates = []; // 좌표 저장
+        var name = ""; // 구 이름
+        $.each(data, function (index, val) {
+          coordinates = val.geometry.coordinates;
+          name = val.properties.SGG_NM;
+          displayYuseongArea(coordinates, name);
+        });
     });
     // 유성구 폴리곤 생성
     function displayYuseongArea(coordinates, name) {
@@ -213,18 +109,20 @@
         strokeColor: "#FFFFFF", // 선 색깔
         strokeOpacity: 0.8, // 선 불투명도
         fillColor: "#6ADF35", // 채우기 색깔 // ======> 0624 색상 변경
-        fillOpacity: 0.8, // 채우기 불투명도 // ======> 0624 투명도 진하게 조절
+        fillOpacity: 0.7, // 채우기 불투명도 // ======> 0624 투명도 진하게 조절
       });
       polygons.push(yuseongPolygon); // 폴리곤 제거하기 위한 배열
       // 유성구 폴리곤을 클릭하면 유성구 행정동 폴리곤 데이터 가져오기
       kakao.maps.event.addListener(
         yuseongPolygon,
         "click",
-        function (mouseEvent) { //
-        	$(".banner").css({"visibility":"visible", "width":"8%"}) // 구를 클릭했을 때 배너 표시
+        function (mouseEvent) {
+            $(".text-box").css({"visibility":"hidden"}) // 구 클릭하면 텍스트박스 사라짐
+            $(".banner").css({"visibility":"visible", "max-width":"10%"}) // 구 클릭하면 배너가 옆으로 나오는 이벤트
+            $(".banner-list").css({"visibility":"visible","width":"100%"}) // 구 클릭하면 리스트가 옆으로 나오는 이벤트
             getParkInfo(name); // name = 유성구
-            getTashuInfo(name);
-            
+            getTashuInfo(name); 
+        	
         	var level = map.getLevel() - 2;
           // map.setLevel(level, {anchor: centroid(points), animate: {
           map.setLevel(level, {
@@ -236,69 +134,19 @@
               duration: 350, // 확대 애니메이션 시간
             },
           });
-          $.getJSON("resources/static/구별json/yuseong.json", function (geojson) {
-            var data = geojson.features;
-            var coordinates = []; // 좌표 저장
-            var dongName = ""; // 동 이름
-            $.each(data, function (index, val) {
-              coordinates = val.geometry.coordinates;
-              name = val.properties.SGG_NM;
-              displayYuseong_dong(coordinates, name);
-            });
-          });
-          deletePolygon(polygons); //폴리곤 제거
-          customOverlay.setMap(null); // 커스텀 오버레이(구 이름) 제거
-          
-		<c:forEach items="${yuseongList}" var="item">
-  		// 도로명 주소로 좌표 검색 & 마커 생성
-  		geocoder.addressSearch("${item.address}", function(result, status) {
-  		    // 검색 완료되면 결과값으로 받은 위치를 마커로 표시
-  		     if (status === kakao.maps.services.Status.OK) {
-  		    	// 마커 이미지의 이미지 주소입니다
-  		    	var imageSrc = "https://t1.daumcdn.net/localimg/localimages/07/mapapidoc/markerStar.png"; 
-  		    	var coords = new kakao.maps.LatLng(result[0].y, result[0].x);
-				// 마커 이미지의 이미지 크기
-				var imageSize = new kakao.maps.Size(24, 35); 
-				// 마커 이미지를 생성  
-				var markerImage = new kakao.maps.MarkerImage(imageSrc, imageSize); 
-  		        var marker = new kakao.maps.Marker({
-  		            map: map,
-  		            position: coords,
-  		          	image : markerImage // 마커 이미지 
-  		        });
-				// 마커를 클릭했을 때 마커 위에 표시할 인포윈도우를 생성합니다
-  		      	var iwContent = '<div style="width:100%;text-align:center;padding:20px 0;"> 장소 : ${item.facility_name} <br> 주소 : ${item.address} <br> <a href="https://map.kakao.com/link/roadview/'+result[0].y+','+result[0].x+'" target="_blank">로드뷰</a> </div>'
-  		      '<div class="wrap">' + 
-              '<div class="info">' + 
-              '        <div class="title">' + 
-              '            ${item.facility_name}' + 
-              '            <div class="close" onclick="closeOverlay()" title="닫기"></div>' + 
-              '        </div>' + 
-              '        <div class="body">' + 
-              '           </div>' + 
-              '            <div class="desc">' + 
-              '                <div class="ellipsis">${item.address}</div>' + 
-              '                <div><a href="https://map.kakao.com/link/roadview/'+result[0].y+','+result[0].x+'" target="_blank">로드뷰</a> </div>' + 
-              '            </div>' + 
-              '        </div>' + 
-              '    </div>' +    
-              '</div>',
-					iwRemoveable = true; // removeable 속성을 ture 로 설정하면 인포윈도우를 닫을 수 있는 x버튼이 표시됩니다
-				// 인포윈도우를 생성합니다
-				var infowindow = new kakao.maps.InfoWindow({
-				    content : iwContent,
-				    removable : iwRemoveable
-				});
-				// 마커에 클릭이벤트를 등록합니다
-				kakao.maps.event.addListener(marker, 'click', function() {
-				      // 마커 위에 인포윈도우를 표시합니다
-				      infowindow.open(map, marker);  
-				});
-  		    }
-  		});
-		</c:forEach>
-  	});
-        
+		$.getJSON("resources/static/구별json/yuseong.json", function (geojson) {
+			var data = geojson.features;
+			var coordinates = []; // 좌표 저장
+			var dongName = ""; // 동 이름
+			$.each(data, function (index, val) {
+			  coordinates = val.geometry.coordinates;
+			  name = val.properties.SGG_NM;
+			  displayYuseong_dong(coordinates, name);
+			});
+           });
+           deletePolygon(polygons); //폴리곤 제거
+           customOverlay.setMap(null); // 커스텀 오버레이(구 이름) 제거
+    	});
 
       // 마우스오버 이벤트
       kakao.maps.event.addListener(yuseongPolygon, "mouseover", function () {
@@ -321,7 +169,7 @@
 
       // 커스텀 오버레이 내용
       // var content = '<div class ="label"><span class="left"></span><span class="center">유성구</span><span class="right"></span></div>';
-      var content = '<div class ="label" style ="font-size:40px; font-weight : 800">유성구</div>';
+      var content = '<div class ="label" style ="font-size:40px; font-weight : 800">'+name+'</div>';
       // 커스텀 오버레이 위치
       var position = centroid(points);
       // 커스텀 오버레이 생성
@@ -340,7 +188,6 @@
           new kakao.maps.LatLng(coordinate[1], coordinate[0])
         );
       });
-      
       var yuseong_dong_Polygon = new kakao.maps.Polygon({
         map: map, // 다각형을 표시할 지도 객체
         path: yuseong_dong_PolygonPath, // 좌표 배열
@@ -350,13 +197,7 @@
         fillColor: "#6ADF35", // 채우기 색깔
         fillOpacity: 0.2, // 채우기 불투명도
       });
-      
-      // 행정구 폴리곤 구분
-      //	yuseong_dong_Polygon.setOptions({
-      //	fillColor: "#00ff0000", // 행정동 폴리곤 바탕색
-      //	fillOpacity: 0.5,
-      //	});
-      
+
       // 행정동 클릭 이벤트
       kakao.maps.event.addListener(
         yuseong_dong_Polygon,
@@ -375,6 +216,70 @@
         }
       );
     }
+    
+    //
+ 		$ ('.test').click(function(){
+ 			var name = $(this).attr("id")
+ 			console.log(name)
+ 			
+ 		}) 
+ 	//
+
+ 	
+ 	function markup(){
+    	 <c:forEach items="${yuseongList}" var="item">
+ 		// 도로명 주소로 좌표 검색 & 마커 생성
+ 		// console.log("${item.event_code}")
+ 		//if("${item.event_code}" == testValue){
+ 		geocoder.addressSearch("${item.addr_road}", function(result, status) {
+ 		    // 검색 완료되면 결과값으로 받은 위치를 마커로 표시
+ 		     if (status === kakao.maps.services.Status.OK) {
+ 		    	// 마커 이미지의 이미지 주소입니다
+ 		    	var imageSrc = "https://t1.daumcdn.net/localimg/localimages/07/mapapidoc/markerStar.png"; 
+ 		    	var coords = new kakao.maps.LatLng(result[0].y, result[0].x);
+				// 마커 이미지의 이미지 크기
+				var imageSize = new kakao.maps.Size(24, 35); 
+				// 마커 이미지를 생성  
+				var markerImage = new kakao.maps.MarkerImage(imageSrc, imageSize); 
+ 		        var marker = new kakao.maps.Marker({
+ 		            map: map,
+ 		            position: coords,
+ 		          	image : markerImage // 마커 이미지 
+ 		        });
+ 		        markers.push(marker); // marker를 제거하기 위해 배열에 담음
+				// 마커를 클릭했을 때 마커 위에 표시할 인포윈도우를 생성합니다
+ 		      	var iwContent = '<div style="width:100%;text-align:center;padding:20px 0;"> 장소 : ${item.fac_name} <br> 주소 : ${item.addr_road} <br> <a href="https://map.kakao.com/link/roadview/'+result[0].y+','+result[0].x+'" target="_blank">로드뷰</a> </div>'
+ 		      '<div class="wrap">' + 
+             '<div class="info">' + 
+             '        <div class="title">' + 
+             '            ${item.fac_name}' + 
+             '            <div class="close" onclick="closeOverlay()" title="닫기"></div>' + 
+             '        </div>' + 
+             '        <div class="body">' + 
+             '           </div>' + 
+             '            <div class="desc">' + 
+             '                <div class="ellipsis">${item.addr_road}</div>' + 
+             '                <div><a href="https://map.kakao.com/link/roadview/'+result[0].y+','+result[0].x+'" target="_blank">로드뷰</a> </div>' + 
+             '            </div>' + 
+             '        </div>' + 
+             '    </div>' +    
+             '</div>',
+					iwRemoveable = true; // removeable 속성을 ture 로 설정하면 인포윈도우를 닫을 수 있는 x버튼이 표시됩니다
+				// 인포윈도우를 생성합니다
+				var infowindow = new kakao.maps.InfoWindow({
+				    content : iwContent,
+				    removable : iwRemoveable
+				});
+				// 마커에 클릭이벤트를 등록합니다
+				kakao.maps.event.addListener(marker, 'click', function() {
+				      // 마커 위에 인포윈도우를 표시합니다
+				      infowindow.open(map, marker);  
+				});
+ 		    }
+ 		});
+ 		//}
+		</c:forEach>
+     }
 
     // 대덕구
     // 대덕구
@@ -417,7 +322,13 @@
         daedeokPolygon,
         "click",
         function (mouseEvent) {
-          var level = map.getLevel() - 2;
+            $(".text-box").css({"visibility":"hidden"})
+            $(".banner").css({"visibility":"visible", "max-width":"10%"})
+            $(".banner-list").css({"visibility":"visible","width":"100%"})
+            getParkInfo(name); // name = 대덕구
+            getTashuInfo(name);
+        	
+        	var level = map.getLevel() - 2;
           map.setLevel(level, {
             anchor: centroid(points),
             animate: {
@@ -436,42 +347,40 @@
           });
           deletePolygon(polygons);
           customOverlay.setMap(null); // 커스텀 오버레이(구 이름) 제거
-         
           <c:forEach items="${daedeokList}" var="item">
-    		// 도로명 주소로 좌표 검색 & 마커 생성
-    		geocoder.addressSearch("${item.address}", function(result, status) {
-    		    // 검색 완료되면 결과값으로 받은 위치를 마커로 표시
-    		     if (status === kakao.maps.services.Status.OK) {
-    		    	// 마커 이미지의 이미지 주소입니다
-    		    	var imageSrc = "https://t1.daumcdn.net/localimg/localimages/07/mapapidoc/markerStar.png"; 
-    		    	var coords = new kakao.maps.LatLng(result[0].y, result[0].x);
-  				// 마커 이미지의 이미지 크기
-  				var imageSize = new kakao.maps.Size(24, 35); 
-  				// 마커 이미지를 생성  
-  				var markerImage = new kakao.maps.MarkerImage(imageSrc, imageSize); 
-    		        var marker = new kakao.maps.Marker({
-    		            map: map,
-    		            position: coords,
-    		          	image : markerImage // 마커 이미지 
-    		        });
-  				// 마커를 클릭했을 때 마커 위에 표시할 인포윈도우를 생성합니다
-    		      	var iwContent = '<div style="width:100%;text-align:center;padding:20px 0;">장소 : ${item.facility_name} <br> 주소 : ${item.address} <br> <a href="https://map.kakao.com/link/roadview/'+result[0].y+','+result[0].x+'" target="_blank">로드뷰</a> </div>',
-  					iwRemoveable = true; // removeable 속성을 ture 로 설정하면 인포윈도우를 닫을 수 있는 x버튼이 표시됩니다
-  				// 인포윈도우를 생성합니다
-  				var infowindow = new kakao.maps.InfoWindow({
-  				    content : iwContent,
-  				    removable : iwRemoveable
-  				});
-  				// 마커에 클릭이벤트를 등록합니다
-  				kakao.maps.event.addListener(marker, 'click', function() {
-  				      // 마커 위에 인포윈도우를 표시합니다
-  				      infowindow.open(map, marker);  
-  				});
-    		    }
-    		});
-  		</c:forEach>
-          
-          
+	  		// 도로명 주소로 좌표 검색 & 마커 생성
+	  		geocoder.addressSearch("${item.addr_road}", function(result, status) {
+	  		    // 검색 완료되면 결과값으로 받은 위치를 마커로 표시
+	  		     if (status === kakao.maps.services.Status.OK) {
+	  		    	// 마커 이미지의 이미지 주소입니다
+	  		    	var imageSrc = "https://t1.daumcdn.net/localimg/localimages/07/mapapidoc/markerStar.png"; 
+	  		    	var coords = new kakao.maps.LatLng(result[0].y, result[0].x);
+					// 마커 이미지의 이미지 크기
+					var imageSize = new kakao.maps.Size(24, 35); 
+					// 마커 이미지를 생성  
+					var markerImage = new kakao.maps.MarkerImage(imageSrc, imageSize); 
+	  		        var marker = new kakao.maps.Marker({
+	  		            map: map,
+	  		            position: coords,
+	  		          	image : markerImage // 마커 이미지 
+	  		        });
+  		      		markers.push(marker); // marker를 제거하기 위해 배열에 담음
+					// 마커를 클릭했을 때 마커 위에 표시할 인포윈도우를 생성합니다
+	  		      	var iwContent = '<div style="width:100%;text-align:center;padding:20px 0;">장소 : ${item.fac_name} <br> 주소 : ${item.addr_road} <br> <a href="https://map.kakao.com/link/roadview/'+result[0].y+','+result[0].x+'" target="_blank">로드뷰</a> </div>',
+						iwRemoveable = true; // removeable 속성을 ture 로 설정하면 인포윈도우를 닫을 수 있는 x버튼이 표시됩니다
+					// 인포윈도우를 생성합니다
+					var infowindow = new kakao.maps.InfoWindow({
+					    content : iwContent,
+					    removable : iwRemoveable
+					});
+					// 마커에 클릭이벤트를 등록합니다
+					kakao.maps.event.addListener(marker, 'click', function() {
+					      // 마커 위에 인포윈도우를 표시합니다
+					      infowindow.open(map, marker);  
+					});
+	  		    }
+	  		});
+			</c:forEach>
         }
       );
       // 마우스오버 이벤트
@@ -494,7 +403,7 @@
       };
 
       // 커스텀 오버레이 내용
-      var content = '<div class ="label" style ="font-size:40px; font-weight : 800">대덕구</div>';
+      var content = '<div class ="label" style ="font-size:40px; font-weight : 800">'+name+'</div>';
       // 커스텀 오버레이 위치
       var position = centroid(points);
       // 커스텀 오버레이 생성
@@ -520,8 +429,7 @@
     });
     // 동구 폴리곤 생성
     function displayDongArea(coordinates, name) {
-      var dongPolygonPath 
-      = [];
+      var dongPolygonPath = [];
       var points = [];
       $.each(coordinates[0], function (index, coordinate) {
         var point = new Object();
@@ -545,7 +453,13 @@
       polygons.push(dongPolygon); // 폴리곤 제거하기 위한 배열
       // 동구 폴리곤을 클릭하면 대덕구 행정동 폴리곤 데이터 가져오기
       kakao.maps.event.addListener(dongPolygon, "click", function (mouseEvent) {
-        var level = map.getLevel() - 2;
+          $(".text-box").css({"visibility":"hidden"})
+          $(".banner").css({"visibility":"visible", "max-width":"10%"})
+          $(".banner-list").css({"visibility":"visible","width":"100%"})
+          getParkInfo(name); // name = 동구
+          getTashuInfo(name);
+
+    	  var level = map.getLevel() - 2;
         map.setLevel(level, {
           anchor: centroid(points),
           animate: {
@@ -564,41 +478,40 @@
         });
         deletePolygon(polygons);
         customOverlay.setMap(null); // 커스텀 오버레이(구 이름) 제거
-        
         <c:forEach items="${dongList}" var="item">
   		// 도로명 주소로 좌표 검색 & 마커 생성
-  		geocoder.addressSearch("${item.address}", function(result, status) {
-  		    // 검색 완료되면 결과값으로 받은 위치를 마커로 표시
-  		     if (status === kakao.maps.services.Status.OK) {
-  		    	// 마커 이미지의 이미지 주소입니다
-  		    	var imageSrc = "https://t1.daumcdn.net/localimg/localimages/07/mapapidoc/markerStar.png"; 
-  		    	var coords = new kakao.maps.LatLng(result[0].y, result[0].x);
-				// 마커 이미지의 이미지 크기
-				var imageSize = new kakao.maps.Size(24, 35); 
-				// 마커 이미지를 생성  
-				var markerImage = new kakao.maps.MarkerImage(imageSrc, imageSize); 
-  		        var marker = new kakao.maps.Marker({
-  		            map: map,
-  		            position: coords,
-  		          	image : markerImage // 마커 이미지 
-  		        });
-				// 마커를 클릭했을 때 마커 위에 표시할 인포윈도우를 생성합니다
-  		      	var iwContent = '<div style="width:100%;text-align:center;padding:20px 0;">장소 : ${item.facility_name} <br> 주소 : ${item.address} <br> <a href="https://map.kakao.com/link/roadview/'+result[0].y+','+result[0].x+'" target="_blank">로드뷰</a> </div>',
-					iwRemoveable = true; // removeable 속성을 ture 로 설정하면 인포윈도우를 닫을 수 있는 x버튼이 표시됩니다
-				// 인포윈도우를 생성합니다
-				var infowindow = new kakao.maps.InfoWindow({
-				    content : iwContent,
-				    removable : iwRemoveable
-				});
-				// 마커에 클릭이벤트를 등록합니다
-				kakao.maps.event.addListener(marker, 'click', function() {
-				      // 마커 위에 인포윈도우를 표시합니다
-				      infowindow.open(map, marker);  
-				});
-  		    }
-  		});
+	  		geocoder.addressSearch("${item.addr_road}", function(result, status) {
+	  		    // 검색 완료되면 결과값으로 받은 위치를 마커로 표시
+	  		     if (status === kakao.maps.services.Status.OK) {
+	  		    	// 마커 이미지의 이미지 주소입니다
+	  		    	var imageSrc = "https://t1.daumcdn.net/localimg/localimages/07/mapapidoc/markerStar.png"; 
+	  		    	var coords = new kakao.maps.LatLng(result[0].y, result[0].x);
+					// 마커 이미지의 이미지 크기
+					var imageSize = new kakao.maps.Size(24, 35); 
+					// 마커 이미지를 생성  
+					var markerImage = new kakao.maps.MarkerImage(imageSrc, imageSize); 
+	  		        var marker = new kakao.maps.Marker({
+	  		            map: map,
+	  		            position: coords,
+	  		          	image : markerImage // 마커 이미지 
+	  		        });
+	  		      	markers.push(marker); // marker를 제거하기 위해 배열에 담음
+					// 마커를 클릭했을 때 마커 위에 표시할 인포윈도우를 생성합니다
+	  		      	var iwContent = '<div style="width:100%;text-align:center;padding:20px 0;">장소 : ${item.fac_name} <br> 주소 : ${item.addr_road} <br> <a href="https://map.kakao.com/link/roadview/'+result[0].y+','+result[0].x+'" target="_blank">로드뷰</a> </div>',
+						iwRemoveable = true; // removeable 속성을 ture 로 설정하면 인포윈도우를 닫을 수 있는 x버튼이 표시됩니다
+					// 인포윈도우를 생성합니다
+					var infowindow = new kakao.maps.InfoWindow({
+					    content : iwContent,
+					    removable : iwRemoveable
+					});
+					// 마커에 클릭이벤트를 등록합니다
+					kakao.maps.event.addListener(marker, 'click', function() {
+					      // 마커 위에 인포윈도우를 표시합니다
+					      infowindow.open(map, marker);  
+					});
+	  		    }
+	  		});
 		</c:forEach>
-		
       });
       // 마우스오버 이벤트
       kakao.maps.event.addListener(dongPolygon, "mouseover", function () {
@@ -607,7 +520,7 @@
       // 마우스오버 이벤트 채우기
       var mouseoverOption = {
         fillColor: "#09f", // 색상
-        fillOpacity: 0.8, // 불투명도
+        fillOpacity: 1, // 불투명도
       };
       // 마우스아웃 이벤트
       daum.maps.event.addListener(dongPolygon, "mouseout", function () {
@@ -620,7 +533,7 @@
       };
 
       // 커스텀 오버레이 내용
-      var content = '<div class ="label" style ="font-size:40px; font-weight : 800">동구</div>';
+      var content = '<div class ="label" style ="font-size:40px; font-weight : 800">'+name+'</div>';
       // 커스텀 오버레이 위치
       var position = centroid(points);
       // 커스텀 오버레이 생성
@@ -665,12 +578,18 @@
         strokeColor: "#FFFFFF", // 선 색깔
         strokeOpacity: 0.8, // 선 불투명도
         fillColor: "#FF4500", // 채우기 색깔
-        fillOpacity: 0.8, // 채우기 불투명도
+        fillOpacity: 0.7, // 채우기 불투명도
       });
       polygons.push(jungPolygon); // 폴리곤 제거하기 위한 배열
       // 중구 폴리곤을 클릭하면 대덕구 행정동 폴리곤 데이터 가져오기
       kakao.maps.event.addListener(jungPolygon, "click", function (mouseEvent) {
-        var level = map.getLevel() - 2;
+          $(".text-box").css({"visibility":"hidden"})
+          $(".banner").css({"visibility":"visible", "max-width":"10%"})
+          $(".banner-list").css({"visibility":"visible","width":"100%"})
+          getParkInfo(name); // name = 중구
+          getTashuInfo(name);
+
+    	  var level = map.getLevel() - 2;
         map.setLevel(level, {
           anchor: centroid(points),
           animate: {
@@ -689,39 +608,39 @@
         });
         deletePolygon(polygons);
         customOverlay.setMap(null);
-        
         <c:forEach items="${jungList}" var="item">
   		// 도로명 주소로 좌표 검색 & 마커 생성
-  		geocoder.addressSearch("${item.address}", function(result, status) {
-  		    // 검색 완료되면 결과값으로 받은 위치를 마커로 표시
-  		     if (status === kakao.maps.services.Status.OK) {
-  		    	// 마커 이미지의 이미지 주소입니다
-  		    	var imageSrc = "https://t1.daumcdn.net/localimg/localimages/07/mapapidoc/markerStar.png"; 
-  		    	var coords = new kakao.maps.LatLng(result[0].y, result[0].x);
-				// 마커 이미지의 이미지 크기
-				var imageSize = new kakao.maps.Size(24, 35); 
-				// 마커 이미지를 생성  
-				var markerImage = new kakao.maps.MarkerImage(imageSrc, imageSize); 
-  		        var marker = new kakao.maps.Marker({
-  		            map: map,
-  		            position: coords,
-  		          	image : markerImage // 마커 이미지 
-  		        });
-				// 마커를 클릭했을 때 마커 위에 표시할 인포윈도우를 생성합니다
-  		      	var iwContent = '<div style="width:100%;text-align:center;padding:20px 0;">장소 : ${item.facility_name} <br> 주소 : ${item.address} <br> <a href="https://map.kakao.com/link/roadview/'+result[0].y+','+result[0].x+'" target="_blank">로드뷰</a> </div>',
-					iwRemoveable = true; // removeable 속성을 ture 로 설정하면 인포윈도우를 닫을 수 있는 x버튼이 표시됩니다
-				// 인포윈도우를 생성합니다
-				var infowindow = new kakao.maps.InfoWindow({
-				    content : iwContent,
-				    removable : iwRemoveable
-				});
-				// 마커에 클릭이벤트를 등록합니다
-				kakao.maps.event.addListener(marker, 'click', function() {
-				      // 마커 위에 인포윈도우를 표시합니다
-				      infowindow.open(map, marker);  
-				});
-  		    }
-  		});
+	  		geocoder.addressSearch("${item.addr_road}", function(result, status) {
+	  		    // 검색 완료되면 결과값으로 받은 위치를 마커로 표시
+	  		     if (status === kakao.maps.services.Status.OK) {
+	  		    	// 마커 이미지의 이미지 주소입니다
+	  		    	var imageSrc = "https://t1.daumcdn.net/localimg/localimages/07/mapapidoc/markerStar.png"; 
+	  		    	var coords = new kakao.maps.LatLng(result[0].y, result[0].x);
+					// 마커 이미지의 이미지 크기
+					var imageSize = new kakao.maps.Size(24, 35); 
+					// 마커 이미지를 생성  
+					var markerImage = new kakao.maps.MarkerImage(imageSrc, imageSize); 
+	  		        var marker = new kakao.maps.Marker({
+	  		            map: map,
+	  		            position: coords,
+	  		          	image : markerImage // 마커 이미지 
+	  		        });
+	  		      	markers.push(marker); // marker를 제거하기 위해 배열에 담음
+					// 마커를 클릭했을 때 마커 위에 표시할 인포윈도우를 생성합니다
+	  		      	var iwContent = '<div style="width:100%;text-align:center;padding:20px 0;">장소 : ${item.fac_name} <br> 주소 : ${item.addr_road} <br> <a href="https://map.kakao.com/link/roadview/'+result[0].y+','+result[0].x+'" target="_blank">로드뷰</a> </div>',
+						iwRemoveable = true; // removeable 속성을 ture 로 설정하면 인포윈도우를 닫을 수 있는 x버튼이 표시됩니다
+					// 인포윈도우를 생성합니다
+					var infowindow = new kakao.maps.InfoWindow({
+					    content : iwContent,
+					    removable : iwRemoveable
+					});
+					// 마커에 클릭이벤트를 등록합니다
+					kakao.maps.event.addListener(marker, 'click', function() {
+					      // 마커 위에 인포윈도우를 표시합니다
+					      infowindow.open(map, marker);  
+					});
+	  		    }
+	  		});
 		</c:forEach>
       });
       // 마우스오버 이벤트
@@ -730,8 +649,8 @@
       });
       // 마우스오버 이벤트 채우기
       var mouseoverOption = {
-        fillColor: "#FF4500", // 색상
-        fillOpacity: 1, // 불투명도
+        fillColor: "#FF4500",
+        fillOpacity: 1,
       };
       // 마우스아웃 이벤트
       daum.maps.event.addListener(jungPolygon, "mouseout", function () {
@@ -739,13 +658,13 @@
       });
       // 마우스아웃 채우기
       var mouseoutOption = {
-        fillColor: "#FF4500", // 채우기 색깔 초록색 : A2FF99
-        fillOpacity: 0.8, // 채우기 불투명도
+        fillColor: "#FF4500",
+        fillOpacity: 0.8,
       };
 
       // 커스텀 오버레이 내용
       // var content = '<div class ="label"><span class="left"></span><span class="center">유성구</span><span class="right"></span></div>';
-      var content = '<div class ="label" style ="font-size:40px; font-weight : 800">중구</div>';
+      var content = '<div class ="label" style ="font-size:40px; font-weight : 800">'+name+'</div>';
       // 커스텀 오버레이 위치
       var position = centroid(points);
       // 커스텀 오버레이 생성
@@ -757,7 +676,6 @@
       customOverlay.setMap(map);
     }
 
-    // 서구
     // 서구
     $.getJSON("resources/static/구별json/seo.json", function (geojson) {
       var data = geojson.features;
@@ -790,12 +708,18 @@
         strokeColor: "#FFFFFF",
         strokeOpacity: 0.8,
         fillColor: "#F08080",
-        fillOpacity: 0.8,
+        fillOpacity: 0.7,
       });
       polygons.push(seoPolygon); // 폴리곤 제거하기 위한 배열
       // 서구 폴리곤을 클릭하면 대덕구 행정동 폴리곤 데이터 가져오기
       kakao.maps.event.addListener(seoPolygon, "click", function (mouseEvent) {
-        var level = map.getLevel() - 2;
+          $(".text-box").css({"visibility":"hidden"})
+          $(".banner").css({"visibility":"visible", "max-width":"10%"})
+          $(".banner-list").css({"visibility":"visible","width":"100%"})
+          getParkInfo(name); // name = 서구
+          getTashuInfo(name);
+    	  
+    	  var level = map.getLevel() - 2;
         map.setLevel(level, {
           anchor: centroid(points),
           animate: {
@@ -815,42 +739,41 @@
         });
         deletePolygon(polygons);
         customOverlay.setMap(null);
-        
         <c:forEach items="${seoList}" var="item">
   		// 도로명 주소로 좌표 검색 & 마커 생성
-  		geocoder.addressSearch("${item.address}", function(result, status) {
-  		    // 검색 완료되면 결과값으로 받은 위치를 마커로 표시
-  		     if (status === kakao.maps.services.Status.OK) {
-  		    	// 마커 이미지의 이미지 주소입니다
-  		    	var imageSrc = "https://t1.daumcdn.net/localimg/localimages/07/mapapidoc/markerStar.png"; 
-  		    	var coords = new kakao.maps.LatLng(result[0].y, result[0].x);
-				// 마커 이미지의 이미지 크기
-				var imageSize = new kakao.maps.Size(24, 35); 
-				// 마커 이미지를 생성  
-				var markerImage = new kakao.maps.MarkerImage(imageSrc, imageSize); 
-  		        var marker = new kakao.maps.Marker({
-  		            map: map,
-  		            position: coords,
-  		          	image : markerImage // 마커 이미지 
-  		        });
-				// 마커를 클릭했을 때 마커 위에 표시할 인포윈도우를 생성합니다
-  		      	var iwContent = '<div style="width:100%;text-align:center;padding:20px 0;">장소 : ${item.facility_name} <br> 주소 : ${item.address} <br> <a href="https://map.kakao.com/link/roadview/'+result[0].y+','+result[0].x+'" target="_blank">로드뷰</a> </div>',
-					iwRemoveable = true; // removeable 속성을 ture 로 설정하면 인포윈도우를 닫을 수 있는 x버튼이 표시됩니다
-				// 인포윈도우를 생성합니다
-				var infowindow = new kakao.maps.InfoWindow({
-				    content : iwContent,
-				    removable : iwRemoveable
-				});
-				// 마커에 클릭이벤트를 등록합니다
-				kakao.maps.event.addListener(marker, 'click', function() {
-				      // 마커 위에 인포윈도우를 표시합니다
-				      infowindow.open(map, marker);  
-				});
-  		    }
-  		});
+	  		geocoder.addressSearch("${item.addr_road}", function(result, status) {
+	  		    // 검색 완료되면 결과값으로 받은 위치를 마커로 표시
+	  		     if (status === kakao.maps.services.Status.OK) {
+	  		    	// 마커 이미지의 이미지 주소입니다
+	  		    	var imageSrc = "https://t1.daumcdn.net/localimg/localimages/07/mapapidoc/markerStar.png"; 
+	  		    	var coords = new kakao.maps.LatLng(result[0].y, result[0].x);
+					// 마커 이미지의 이미지 크기
+					var imageSize = new kakao.maps.Size(24, 35); 
+					// 마커 이미지를 생성  
+					var markerImage = new kakao.maps.MarkerImage(imageSrc, imageSize); 
+	  		        var marker = new kakao.maps.Marker({
+	  		            map: map,
+	  		            position: coords,
+	  		          	image : markerImage // 마커 이미지 
+	  		        });
+	  		      	markers.push(marker); // marker를 제거하기 위해 배열에 담음
+					// 마커를 클릭했을 때 마커 위에 표시할 인포윈도우를 생성합니다
+	  		      	var iwContent = '<div style="width:100%;text-align:center;padding:20px 0;">장소 : ${item.fac_name} <br> 주소 : ${item.addr_road} <br> <a href="https://map.kakao.com/link/roadview/'+result[0].y+','+result[0].x+'" target="_blank">로드뷰</a> </div>',
+						iwRemoveable = true; // removeable 속성을 ture 로 설정하면 인포윈도우를 닫을 수 있는 x버튼이 표시됩니다
+					// 인포윈도우를 생성합니다
+					var infowindow = new kakao.maps.InfoWindow({
+					    content : iwContent,
+					    removable : iwRemoveable
+					});
+					// 마커에 클릭이벤트를 등록합니다
+					kakao.maps.event.addListener(marker, 'click', function() {
+					      // 마커 위에 인포윈도우를 표시합니다
+					      infowindow.open(map, marker);  
+					});
+	  		    }
+	  		});
 		</c:forEach>
       });
-
       // 마우스오버 이벤트
       kakao.maps.event.addListener(seoPolygon, "mouseover", function () {
         seoPolygon.setOptions(mouseoverOption);
@@ -858,7 +781,7 @@
       // 마우스오버 이벤트 채우기
       var mouseoverOption = {
         fillColor: "#F08080",
-        fillOpacity: 0.8,
+        fillOpacity: 1,
       };
       // 마우스아웃 이벤트
       daum.maps.event.addListener(seoPolygon, "mouseout", function () {
@@ -871,7 +794,7 @@
       };
 
       // 커스텀 오버레이 내용
-      var content = '<div class ="label" style ="font-size:40px; font-weight : 800">서구</div>';
+      var content = '<div class ="label" style ="font-size:40px; font-weight : 800">'+name+'</div>';
       // 커스텀 오버레이 위치
       var position = centroid(points);
       // 커스텀 오버레이 생성
@@ -905,5 +828,19 @@
     var zoomControl = new kakao.maps.ZoomControl();
     // 지도 오른쪽에 줌 컨트롤이 표시되도록 지도에 컨트롤을 추가한다.
     map.addControl(zoomControl, kakao.maps.ControlPosition.RIGHT);
+    kakao.maps.event.addListener(map, 'zoom_changed', function() {        
+        // 지도 현재 레벨
+        var level = map.getLevel();
+        console.log('현재 지도 레벨은 ' + level + ' 입니다');
+        if(level == 10){
+        	// 지도레벨이 10이면 커스텀 오버레이 지우는 코드 작성중... 
+        	console.log("테스트")
+        }
+    });
+    var mapTypeControl = new kakao.maps.MapTypeControl();
+	// 지도 오른쪽 위에 지도 타입 컨트롤이 표시되도록 지도에 컨트롤을 추가한다.
+	map.addControl(mapTypeControl, kakao.maps.ControlPosition.TOPRIGHT);
   </script>
+	<script src="/resources/static/js/park.js"></script>
+	<script src="/resources/static/js/tashu.js"></script>
 </html>
