@@ -246,22 +246,25 @@
  		        });
  		        markers.push(marker); // marker를 제거하기 위해 배열에 담음
 				// 마커를 클릭했을 때 마커 위에 표시할 인포윈도우를 생성합니다
- 		      	var iwContent = '<div style="width:100%;text-align:center;padding:20px 0;"> 장소 : ${item.fac_name} <br> 주소 : ${item.addr_road} <br> <a href="https://map.kakao.com/link/roadview/'+result[0].y+','+result[0].x+'" target="_blank">로드뷰</a> </div>'
- 		      '<div class="wrap">' + 
-             '<div class="info">' + 
-             '        <div class="title">' + 
-             '            ${item.fac_name}' + 
-             '            <div class="close" onclick="closeOverlay()" title="닫기"></div>' + 
-             '        </div>' + 
-             '        <div class="body">' + 
-             '           </div>' + 
-             '            <div class="desc">' + 
-             '                <div class="ellipsis">${item.addr_road}</div>' + 
-             '                <div><a href="https://map.kakao.com/link/roadview/'+result[0].y+','+result[0].x+'" target="_blank">로드뷰</a> </div>' + 
-             '            </div>' + 
-             '        </div>' + 
-             '    </div>' +    
-             '</div>',
+ 		      	var iwContent = 
+ 		      		'<div class="wrap">' + 
+ 		            '    <div class="info">' + 
+ 		            '        <div class="title">' + 
+ 		           		'${item.fac_name}' + 
+ 		            '            <div class="close" onclick="closeOverlay()" title="닫기"></div>' + 
+ 		            '        </div>' + 
+ 		            '        <div class="body">' + 
+ 		            '            <div class="img">' +
+ 		            '                <img src="resources/static/img/marker_img/gethealthy.png" width="73" height="70">' +
+ 		            '           	</div>' + 
+ 		            '            <div class="desc">' + 
+ 		            '                <div class="ellipsis">${item.addr_road}</div>' + 
+ 		            '                <div><a href="https://map.kakao.com/link/roadview/'+result[0].y+','+result[0].x+'" target="_blank">로드뷰</a> </div>' + 
+ 		            '                <div><a href="https://www.kakaocorp.com/main" target="_blank" class="link">홈페이지</a></div>' + 
+ 		            '            </div>' + 
+ 		            '        </div>' + 
+ 		            '    </div>' +    
+ 		            '</div>',
 					iwRemoveable = true; // removeable 속성을 ture 로 설정하면 인포윈도우를 닫을 수 있는 x버튼이 표시됩니다
 				// 인포윈도우를 생성합니다
 				var infowindow = new kakao.maps.InfoWindow({
@@ -364,7 +367,25 @@
 	  		        });
   		      		markers.push(marker); // marker를 제거하기 위해 배열에 담음
 					// 마커를 클릭했을 때 마커 위에 표시할 인포윈도우를 생성합니다
-	  		      	var iwContent = '<div style="width:100%;text-align:center;padding:20px 0;">장소 : ${item.fac_name} <br> 주소 : ${item.addr_road} <br> <a href="https://map.kakao.com/link/roadview/'+result[0].y+','+result[0].x+'" target="_blank">로드뷰</a> </div>',
+	  		      	var iwContent = '<div class="wrap">' + 
+ 		            '    <div class="info">' + 
+ 		            '        <div class="title">' + 
+ 		           		'${item.fac_name}' + 
+ 		            '            <div class="close" onclick="closeOverlay()" title="닫기"></div>' + 
+ 		            '        </div>' + 
+ 		            '        <div class="body">' + 
+ 		            '            <div class="img">' +
+ 		            '                <img src="resources/static/img/marker_img/gethealthy.png" width="73" height="70">' +
+ 		            '           </div>' + 
+ 		            '            <div class="desc">' + 
+ 		            '                <div class="ellipsis">${item.addr_road}</div>' + 
+ 		            '                <div><a href="https://map.kakao.com/link/roadview/'+result[0].y+','+result[0].x+'" target="_blank">로드뷰</a> </div>' + 
+ 		            '                <div><a href="https://www.kakaocorp.com/main" target="_blank" class="link">홈페이지</a></div>' + 
+ 		            '            </div>' + 
+ 		            '        </div>' + 
+ 		            '    </div>' +    
+ 		            '</div>',
+ 		            
 						iwRemoveable = true; // removeable 속성을 ture 로 설정하면 인포윈도우를 닫을 수 있는 x버튼이 표시됩니다
 					// 인포윈도우를 생성합니다
 					var infowindow = new kakao.maps.InfoWindow({
@@ -495,7 +516,23 @@
 	  		        });
 	  		      	markers.push(marker); // marker를 제거하기 위해 배열에 담음
 					// 마커를 클릭했을 때 마커 위에 표시할 인포윈도우를 생성합니다
-	  		      	var iwContent = '<div style="width:100%;text-align:center;padding:20px 0;">장소 : ${item.fac_name} <br> 주소 : ${item.addr_road} <br> <a href="https://map.kakao.com/link/roadview/'+result[0].y+','+result[0].x+'" target="_blank">로드뷰</a> </div>',
+	  		      	var iwContent = 
+	  		      	'<div style="width:100%;text-align:center;padding:20px 0;"> 장소 : ${item.fac_name} <br> 주소 : ${item.addr_road} <br> <a href="https://map.kakao.com/link/roadview/'+result[0].y+','+result[0].x+'" target="_blank">로드뷰</a> </div>'
+	    		      '<div class="wrap">' + 
+	                '<div class="info">' + 
+	                '        <div class="title">' + 
+	                '            ${item.fac_name}' + 
+	                '            <div class="close" onclick="closeOverlay()" title="닫기"></div>' + 
+	                '        </div>' + 
+	                '        <div class="body">' + 
+	                '           </div>' + 
+	                '            <div class="desc">' + 
+	                '                <div class="ellipsis">${item.addr_road}</div>' + 
+	                '                <div><a href="https://map.kakao.com/link/roadview/'+result[0].y+','+result[0].x+'" target="_blank">로드뷰</a> </div>' + 
+	                '            </div>' + 
+	                '        </div>' + 
+	                '    </div>' +    
+	                '</div>',
 						iwRemoveable = true; // removeable 속성을 ture 로 설정하면 인포윈도우를 닫을 수 있는 x버튼이 표시됩니다
 					// 인포윈도우를 생성합니다
 					var infowindow = new kakao.maps.InfoWindow({
@@ -625,7 +662,24 @@
 	  		        });
 	  		      	markers.push(marker); // marker를 제거하기 위해 배열에 담음
 					// 마커를 클릭했을 때 마커 위에 표시할 인포윈도우를 생성합니다
-	  		      	var iwContent = '<div style="width:100%;text-align:center;padding:20px 0;">장소 : ${item.fac_name} <br> 주소 : ${item.addr_road} <br> <a href="https://map.kakao.com/link/roadview/'+result[0].y+','+result[0].x+'" target="_blank">로드뷰</a> </div>',
+	  		      	var iwContent = '<div class="wrap">' + 
+ 		            '    <div class="info">' + 
+ 		            '        <div class="title">' + 
+ 		           		'${item.fac_name}' + 
+ 		            '            <div class="close" onclick="closeOverlay()" title="닫기"></div>' + 
+ 		            '        </div>' + 
+ 		            '        <div class="body">' + 
+ 		            '            <div class="img">' +
+ 		            '                <img src="resources/static/img/marker_img/gethealthy.png" width="73" height="70">' +
+ 		            '           </div>' + 
+ 		            '            <div class="desc">' + 
+ 		            '                <div class="ellipsis">${item.addr_road}</div>' + 
+ 		            '                <div><a href="https://map.kakao.com/link/roadview/'+result[0].y+','+result[0].x+'" target="_blank">로드뷰</a> </div>' + 
+ 		            '                <div><a href="https://www.kakaocorp.com/main" target="_blank" class="link">홈페이지</a></div>' + 
+ 		            '            </div>' + 
+ 		            '        </div>' + 
+ 		            '    </div>' +    
+ 		            '</div>',
 						iwRemoveable = true; // removeable 속성을 ture 로 설정하면 인포윈도우를 닫을 수 있는 x버튼이 표시됩니다
 					// 인포윈도우를 생성합니다
 					var infowindow = new kakao.maps.InfoWindow({
@@ -756,7 +810,24 @@
 	  		        });
 	  		      	markers.push(marker); // marker를 제거하기 위해 배열에 담음
 					// 마커를 클릭했을 때 마커 위에 표시할 인포윈도우를 생성합니다
-	  		      	var iwContent = '<div style="width:100%;text-align:center;padding:20px 0;">장소 : ${item.fac_name} <br> 주소 : ${item.addr_road} <br> <a href="https://map.kakao.com/link/roadview/'+result[0].y+','+result[0].x+'" target="_blank">로드뷰</a> </div>',
+	  		      	var iwContent = '<div class="wrap">' + 
+ 		            '    <div class="info">' + 
+ 		            '        <div class="title">' + 
+ 		           		'${item.fac_name}' + 
+ 		            '            <div class="close" onclick="closeOverlay()" title="닫기"></div>' + 
+ 		            '        </div>' + 
+ 		            '        <div class="body">' + 
+ 		            '            <div class="img">' +
+ 		            '                <img src="resources/static/img/marker_img/gethealthy.png" width="73" height="70">' +
+ 		            '           </div>' + 
+ 		            '            <div class="desc">' + 
+ 		            '                <div class="ellipsis">${item.addr_road}</div>' + 
+ 		            '                <div><a href="https://map.kakao.com/link/roadview/'+result[0].y+','+result[0].x+'" target="_blank">로드뷰</a> </div>' + 
+ 		            '                <div><a href="https://www.kakaocorp.com/main" target="_blank" class="link">홈페이지</a></div>' + 
+ 		            '            </div>' + 
+ 		            '        </div>' + 
+ 		            '    </div>' +    
+ 		            '</div>',
 						iwRemoveable = true; // removeable 속성을 ture 로 설정하면 인포윈도우를 닫을 수 있는 x버튼이 표시됩니다
 					// 인포윈도우를 생성합니다
 					var infowindow = new kakao.maps.InfoWindow({
