@@ -9,43 +9,32 @@
 		SELECT * 
 		from dw.health_addr
 		WHERE gu_code = "유성구" 
-			AND eventCode = #{event_code}	
 	</select>
 	
 	<select id="selectDaedeok" resultType="map">
 		SELECT * 
 		from dw.health_addr
 		WHERE gu_code = "대덕구"
-			AND eventCode = #{event_code}	
 	</select>
 	
 	<select id="selectDong" resultType="map">
 		SELECT *
 		from dw.health_addr
 		WHERE gu_code = "동구"
-			AND eventCode = #{event_code}	
 	</select>
 
 	<select id="selectJung" resultType="map">
 		SELECT * 
 		from dw.health_addr
 		WHERE gu_code = "중구"
-			AND eventCode = #{event_code}	
 	</select>
 	
 	<select id="selectSeo" resultType="map">
 		SELECT * 
 		from dw.health_addr
 		WHERE gu_code = "서구"
-			AND eventCode = #{event_code}	
 	</select>
 	
 	
-	<!-- 종목 카테고리별 조회(보류) -->
-	<select id="selectEventCode" resultType="map">
-		SELECT * 
-		from dw.health_addr
-		WHERE event_code = #{eventCode}
-	</select>
-	
+
 </mapper>

@@ -96,10 +96,10 @@
     <div class="container">
       <div class="banner">
         <div class="logo">
-          <img src="logo.png" alt="">
+          <a class="navbar-brand custom_navbar-brand" href="http://localhost:8080/health/index">
+		  <img src="/resources/static/img/logo.png" alt=""></a>
         </div>
-        <div class="btn">
-        </div>
+        
 	        <div class="banner-list">
 	          <input type="button" id="T" value="테니스장">
 	          <input type="button" id="S" value="수영장">
@@ -221,7 +221,9 @@
         yuseongPolygon,
         "click",
         function (mouseEvent) { //
-        	
+        	$(".banner").css({"visibility":"visible", "width":"8%"}) // 구를 클릭했을 때 배너 표시
+            getParkInfo(name); // name = 유성구
+            getTashuInfo(name);
             
         	var level = map.getLevel() - 2;
           // map.setLevel(level, {anchor: centroid(points), animate: {

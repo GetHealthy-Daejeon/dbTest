@@ -44,10 +44,7 @@ public class ExcelService {
 	}
 	
 	
-	// 종목코드별 조회
-	public List<Map<String, Object>> getEventCode(String eventCode){
-		return excelMapper.selectEventCode(eventCode);
-	}
+
 	
 	
 }

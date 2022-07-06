@@ -9,7 +9,6 @@ import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestParam;
 
 import com.example.dbTest.service.ExcelService;
 
@@ -19,8 +18,47 @@ public class ExcelController {
 	@Autowired
 	private ExcelService excelService;
 	
-	@CrossOrigin 
-	@GetMapping("/home")
+//	@CrossOrigin 
+//	@GetMapping("/home/yuseong")
+//	public String callHomepage(ModelMap map) {
+//		List<Map<String, Object>> yuseongList = excelService.getYuseongFacilityList();
+//		map.addAttribute("yuseongList", yuseongList);
+//		return "map";
+//	}
+//	
+//	@CrossOrigin
+//	@GetMapping("/home/daedeok")	
+//	public String callHomePage2(ModelMap map) {
+//		List<Map<String, Object>> daedeokList = excelService.getDaedeokFacilityList();
+//		map.addAttribute("daedeokList", daedeokList);
+//		return "map";
+//	}
+//	
+//	@CrossOrigin 
+//	@GetMapping("/home/dong")	
+//	public String callHomePage3(ModelMap map) {
+//		List<Map<String, Object>> dongList = excelService.getDongFacilityList();
+//		map.addAttribute("dongList", dongList);
+//		return "map";
+//	}
+//	
+//	@CrossOrigin 
+//	@GetMapping("/home/jung")	
+//	public String callHomePage4(ModelMap map) {
+//		List<Map<String, Object>> jungList = excelService.getJungFacilityList();
+//		map.addAttribute("jungList", jungList);
+//		return "map";
+//	}
+//		
+//	@CrossOrigin 
+//	@GetMapping("/home/seo")	
+//	public String callHomePage5(ModelMap map) {
+//		List<Map<String, Object>> seoList = excelService.getSeoFacilityList();
+//		map.addAttribute("seoList", seoList);
+//		return "map";
+//	}
+	
+	@GetMapping("/map")
 	public String callHomepage(ModelMap map) {
 		List<Map<String, Object>> yuseongList = excelService.getYuseongFacilityList();
 //		List<Map<String, Object>> list = excelService.getTestList();
@@ -34,11 +72,12 @@ public class ExcelController {
 		
 		List<Map<String, Object>> jungList = excelService.getJungFacilityList();
 		map.addAttribute("jungList", jungList);
-		
+
 		List<Map<String, Object>> seoList = excelService.getSeoFacilityList();
 		map.addAttribute("seoList", seoList);
 		
 		return "map";
 	}
+		
 	
 }
