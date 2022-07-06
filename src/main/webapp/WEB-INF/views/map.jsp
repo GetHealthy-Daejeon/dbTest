@@ -20,12 +20,12 @@
 		</div>
 		<div class="banner">
 			<div class="banner-list">
-				<input class ="test" type="button" id="T" onclick ="markup()" value="테니스장" >
-				<input class ="test" type="button" id="S" onclick ="markup()" value="수영장" >
-				<input class ="test" type="button" id="B" onclick ="markup()" value="농구장" >
-				<input class ="test" type="button" id="F" onclick ="markup()" value="풋살&축구" >
-				<input class ="test" type="button" id="P" onclick ="markup()" value="공원체육시설" >
-				<input class ="test" type="button" id="E" onclick ="markup()" value="기타체육시설" name="test">
+				<input class ="test" type="button" id="T" onclick ="markup()" value="테니스장" name = "test"  >
+				<input class ="test" type="button" id="S" onclick ="markup()" value="수영장" name = "test" >
+				<input class ="test" type="button" id="B" onclick ="markup()" value="농구장" name = "test">
+				<input class ="test" type="button" id="F" onclick ="markup()" value="풋살&축구" name = "test">
+				<input class ="test" type="button" id="P" onclick ="markup()" value="공원체육시설" name = "test">
+				<input class ="test" type="button" id="E" onclick ="markup()" value="기타체육시설" name = "test">
 				<hr width="90%" color="#000" noshade />
 				<input type="button" id="park" value="공원">
 				<input type="button" id="tashu" value="타슈">
@@ -217,15 +217,13 @@
       );
     }
     
-    //
- 		$ ('.test').click(function(){
+    // 버튼 클릭시 this의 id 값 가져오기 
+ 		$ ('input[name=test]').click(function(){
  			var name = $(this).attr("id")
  			console.log(name)
  			
  		}) 
- 	//
-
- 	
+ 
  	function markup(){
     	 <c:forEach items="${yuseongList}" var="item">
  		// 도로명 주소로 좌표 검색 & 마커 생성
