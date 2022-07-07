@@ -217,36 +217,36 @@
       );
     }
     
-    // 버튼 클릭시 this의 id 값 가져오기 
- 		$ ('input[name=test]').click(function(){
- 			var name = $(this).attr("id")
- 			console.log(name)
- 			
- 		}) 
- 
+    // 마크업 인포윈도우 설정
+    var overlay = null; 
+    
+ 	function closeOverlay(){ //닫기 버튼 누르면 실행하는 함수
+ 		overlay.setMap(null);   
+    }
+ 		
  	function markup(){
     	 <c:forEach items="${yuseongList}" var="item">
+    	 // 해결방한 => yuseongList를 ajax로 호출한다. 그리고 success안에서 for문을 돌린다.
  		// 도로명 주소로 좌표 검색 & 마커 생성
- 		// console.log("${item.event_code}")
- 		//if("${item.event_code}" == testValue){
  		geocoder.addressSearch("${item.addr_road}", function(result, status) {
  		    // 검색 완료되면 결과값으로 받은 위치를 마커로 표시
  		     if (status === kakao.maps.services.Status.OK) {
  		    	// 마커 이미지의 이미지 주소입니다
  		    	var imageSrc = "https://t1.daumcdn.net/localimg/localimages/07/mapapidoc/markerStar.png"; 
+ 		    	
  		    	var coords = new kakao.maps.LatLng(result[0].y, result[0].x);
 				// 마커 이미지의 이미지 크기
-				var imageSize = new kakao.maps.Size(24, 35); 
+				var imageSize = new kakao.maps.Size(35, 40); 
 				// 마커 이미지를 생성  
 				var markerImage = new kakao.maps.MarkerImage(imageSrc, imageSize); 
- 		        var marker = new kakao.maps.Marker({
+ 		        var marker = new kakao.maps.Marker({ // 지도에 마커를 표시합니다
  		            map: map,
  		            position: coords,
- 		          	image : markerImage // 마커 이미지 
+ 		          	image : markerImage, // 마커 이미지 
  		        });
- 		        markers.push(marker); // marker를 제거하기 위해 배열에 담음
-				// 마커를 클릭했을 때 마커 위에 표시할 인포윈도우를 생성합니다
- 		      	var iwContent = 
+ 		        
+ 		        markers.push(marker); // marker를 제거하기 위해 배열에 담음	
+ 		      	var content = 
  		      		'<div class="wrap">' + 
  		            '    <div class="info">' + 
  		            '        <div class="title">' + 
@@ -265,20 +265,17 @@
  		            '        </div>' + 
  		            '    </div>' +    
  		            '</div>',
-					iwRemoveable = true; // removeable 속성을 ture 로 설정하면 인포윈도우를 닫을 수 있는 x버튼이 표시됩니다
-				// 인포윈도우를 생성합니다
-				var infowindow = new kakao.maps.InfoWindow({
-				    content : iwContent,
-				    removable : iwRemoveable
-				});
-				// 마커에 클릭이벤트를 등록합니다
-				kakao.maps.event.addListener(marker, 'click', function() {
-				      // 마커 위에 인포윈도우를 표시합니다
-				      infowindow.open(map, marker);  
-				});
- 		    }
+				iwRemoveable = true; // removeable 속성을 ture 로 설정하면 인포윈도우를 닫을 수 있는 x버튼이 표시됩니다				
+				kakao.maps.event.addListener(marker, 'click', function() { // 마커를 클릭했을 때 커스텀 오버레이를 표시합니다
+					overlay = new kakao.maps.CustomOverlay({
+					    content: content,
+					    map: map,
+					    position: marker.getPosition()       
+					});
+					overlay.setMap(map);
+				});	
+ 		    }//end if
  		});
- 		//}
 		</c:forEach>
      }
 
@@ -323,8 +320,8 @@
         daedeokPolygon,
         "click",
         function (mouseEvent) {
-            $(".text-box").css({"visibility":"hidden"})
-            $(".banner").css({"visibility":"visible", "max-width":"10%"})
+            $(".text-box").css({"visibility":"hidden", "width":"100%"})
+            $(".banner").css({"visibility":"visible", "max-width":"20%"})
             $(".banner-list").css({"visibility":"visible","width":"100%"})
             getParkInfo(name); // name = 대덕구
             getTashuInfo(name);
@@ -912,4 +909,5 @@
   </script>
 	<script src="/resources/static/js/park.js"></script>
 	<script src="/resources/static/js/tashu.js"></script>
+	<script src="/resources/static/js/facility.js"></script>
 </html>
