@@ -38,18 +38,35 @@ function getParkInfo(guName){
                 parkMarkers.push(marker); // 공원만 제거하기 위한 배열
                 markers.push(marker); // marker를 제거하기 위해 배열에 담음
                 // 마커를 클릭했을 때 마커 위에 표시할 인포윈도우를 생성합니다
-                var iwContent = '<div style="width:100%;text-align:center;padding:20px 0;">'+response.data[index].비고 +'<br> 공원명 :'+response.data[index].공원명+' <br> 주소 :'+ response.data[index].위치+'<br> 종류 :'+response.data[index].공원종류+'<br> 관리청 :'+response.data[index].관리청+'<input id="isComplete" type="hidden" value="'+response.data[index].비고+'"></div>'
-                iwRemoveable = true; // removeable 속성을 ture 로 설정하면 인포윈도우를 닫을 수 있는 x버튼이 표시됩니다
-                // 인포윈도우를 생성합니다
-                var infowindow = new kakao.maps.InfoWindow({
-                  content : iwContent,
-                  removable : iwRemoveable
-                });
-                // 마커에 클릭이벤트를 등록합니다
-                kakao.maps.event.addListener(marker, 'click', function() {
-                  // 마커 위에 인포윈도우를 표시합니다
-                  infowindow.open(map, marker);  
-                });
+                	console.log(response.data[index].공원명)
+                	var content = 
+ 		      		'<div class="wrap">' + 
+ 		            '    <div class="info">' + 
+ 		            '        <div class="title">' 
+ 		           	+response.data[index].공원명+ 
+ 		            '            <div class="close" onclick="closeOverlay()" title="닫기"></div>' + 
+ 		            '        </div>' + 
+ 		            '        <div class="body">' + 
+ 		            '            <div class="img">' +
+ 		            '                <img src="resources/static/img/marker_img/gethealthy.png" width="73" height="70">' +
+ 		            '           	</div>' + 
+ 		            '            <div class="desc">' + 
+ 		            '                <div class="ellipsis">'+ response.data[index].위치 +'</div>' + 
+ 		            '                <div><a href="https://map.kakao.com/link/roadview/'+result[0].y+','+result[0].x+'" target="_blank">로드뷰</a> </div>' + 
+ 		            '                <div><a href="https://www.kakaocorp.com/main" target="_blank" class="link">홈페이지</a></div>' + 
+ 		            '            </div>' + 
+ 		            '        </div>' + 
+ 		            '    </div>' +    
+ 		            '</div>',
+				iwRemoveable = true; // removeable 속성을 ture 로 설정하면 인포윈도우를 닫을 수 있는 x버튼이 표시됩니다				
+				kakao.maps.event.addListener(marker, 'click', function() { // 마커를 클릭했을 때 커스텀 오버레이를 표시합니다
+					overlay = new kakao.maps.CustomOverlay({
+					    content: content,
+					    map: map,
+					    position: marker.getPosition()       
+					});
+					overlay.setMap(map);
+				});	
               }
             });
           }
