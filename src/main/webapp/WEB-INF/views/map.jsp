@@ -286,7 +286,6 @@
             getParkInfo(name); // name = 대덕구
             getTashuInfo(name);
             getFacilityInfo('${daedeokList}');
-            closeOverlay();
         	
 			var level = map.getLevel() - 2;
 			map.setLevel(level, {

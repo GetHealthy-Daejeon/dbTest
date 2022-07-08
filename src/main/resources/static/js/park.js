@@ -60,7 +60,7 @@ function getParkInfo(guName){
  		            '            <div class="desc">' + 
  		            '                <div class="ellipsis">'+ response.data[index].위치 +'</div>' + 
  		            '                <div><a href="https://map.kakao.com/link/roadview/'+result[0].y+','+result[0].x+'" target="_blank">로드뷰</a> </div>' + 
- 		            '                <div><a href="https://www.kakaocorp.com/main" target="_blank" class="link">홈페이지</a></div>' + 
+ 		            '                  <div><a href="https://map.kakao.com/link/to/'+response.data[index].공원명+','+ result[0].y+','+result[0].x+'" target="_blank" class="link">길찾기</a></div>' + 
  		            '            </div>' + 
  		            '        </div>' + 
  		            '    </div>' +    
