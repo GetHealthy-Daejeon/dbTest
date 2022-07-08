@@ -1,3 +1,10 @@
+ var overlay = null; 
+    
+ 	function closeOverlay(){ //닫기 버튼 누르면 실행하는 함수
+ 		overlay.setMap(null);   
+    }
+
+
 function getParkInfo(guName){
   var parkMarkers = [];
   $('#park').click(function(){ //park 버튼 클릭했을 때 
